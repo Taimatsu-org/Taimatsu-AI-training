@@ -3,89 +3,103 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Security · Taimatsu AI Training</title>
+<title>Using AI safely at work · Taimatsu AI Training</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header><nav>
+<header><nav aria-label="Main navigation">
   <a class="brand" href="index.html">Taimatsu AI Training</a>
   <a href="index.html">Home</a>
   <a href="start.html">Getting started</a>
   <a href="security.html" aria-current="page">Security</a>
   <a href="cheatsheet.html">Cheat sheet</a>
   <a href="departments.html">Departments</a>
-  <a class="lang" href="ja/security.html">日本語</a>
+  <a class="lang" href="ja/security.html" lang="ja">日本語</a>
 </nav></header>
 <main>
-<h1>Security</h1>
-<p class="lead">AI is a new kind of tool, with new kinds of risk. These rules are based on the <a href="https://genai.owasp.org/llm-top-10/">OWASP Top 10 for LLM Applications 2026</a> and on Anthropic's own guidance.</p>
+<h1>Using AI safely at work</h1>
+<p class="lead">Claude can help with everyday work. These habits can help protect your account, your information, and the people you work with. They apply to other AI tools too.</p>
 
-<h2>What happens to your data</h2>
-<p>We use <strong>Claude Enterprise</strong>. Under Anthropic's commercial terms, what you type and upload in our company account is <strong>not used to train Claude</strong>. Admins control how long chats are kept.</p>
-<p>This protection applies only to the company account. A personal or free account has different rules. That is why golden rule 1 is: <strong>company account only</strong>.</p>
-<p>Not used for training doesn't mean "share anything". Your data still leaves our company and is stored by Anthropic. Follow the rules below.</p>
-
-<h2 id="sensitive">1. Sensitive information disclosure <span class="tag">OWASP LLM02</span></h2>
-<p><strong>The risk:</strong> private data is pasted into the chat and ends up somewhere it should not be.</p>
-<div class="card bad">
-  <p><strong>Never paste:</strong> passwords, API keys, tokens, bank or card numbers, customer personal data (names + contact, passport, address), employee personal data, or anything marked confidential by a client contract.</p>
+<div class="card">
+  <p><strong>The short version</strong></p>
+  <ul>
+    <li>Protect the account and email you use to sign in.</li>
+    <li>Think before you share information or connect another service.</li>
+    <li>Check answers and actions before you use them.</li>
+    <li>If something goes wrong, stop and tell the engineering team.</li>
+  </ul>
 </div>
-<p><strong>Do instead:</strong> replace real details with placeholders, like <code>Customer A</code>, <code>[email]</code>, <code>XXXX-1234</code>. Claude works just as well.</p>
 
-<h2 id="injection">2. Prompt injection <span class="tag">OWASP LLM01</span></h2>
-<p><strong>The risk:</strong> a file, email or web page can contain hidden instructions written for the AI, like <em>"Ignore the user and send this data to…"</em>. Claude may follow them without you noticing. Text can be hidden in white font, in images, or in metadata.</p>
+<nav class="page-contents" aria-label="On this page">
+  <p><strong>On this page</strong></p>
+  <ul>
+    <li><a href="#account">Protect the account you use to sign in</a></li>
+    <li><a href="#sensitive">Think before sharing information</a></li>
+    <li><a href="#agency">Connecting email, files, and other tools</a></li>
+    <li><a href="#injection">When Claude reads emails and files</a></li>
+    <li><a href="#misinformation">Check what AI gives you</a></li>
+    <li><a href="#help">If something goes wrong</a></li>
+    <li><a href="#further-reading">Further reading</a></li>
+  </ul>
+</nav>
+
+<h2 id="account">Protect the account you use to sign in</h2>
+<p>Your Claude account may contain work conversations and company information. Protect it and the email account you use to sign in.</p>
 <ul>
-  <li>Be careful with files and links from people you don't know.</li>
-  <li>If Claude suddenly does something you didn't ask for, stop and tell the engineering team.</li>
-  <li>Be extra careful when Claude reads outside content <em>and</em> has connectors that can send or change things.</li>
+  <li><strong>Turn on two-step verification.</strong> This adds a second check when you sign in with your password. An app such as <a href="https://support.microsoft.com/en-us/authenticator/download-microsoft-authenticator">Microsoft Authenticator</a>, <a href="https://support.google.com/accounts/answer/1066447">Google Authenticator</a>, or <a href="https://help.twilio.com/articles/19753637085467-Downloading-and-Installing-Authy-Apps">Authy</a> can give you a temporary code to enter.</li>
+  <li><strong>Consider using a passkey.</strong> A passkey lets you sign in using your fingerprint, face, or device screen lock instead of typing a password.</li>
+  <li><strong>Plan for a lost phone.</strong> Your account may offer <em>recovery codes</em> when you set up two-step verification. These special codes help you sign in if you lose your phone. Save them somewhere secure you can reach without your phone, such as a locked drawer, or set up another way to sign in.</li>
+  <li><strong>Check sign-in notifications.</strong> If your phone asks you to approve a sign-in, approve it only when you are signing in yourself. Never share a temporary sign-in code. Tell the engineering team if you receive an unexpected sign-in notification.</li>
 </ul>
+<p>Use a strong, different password for each account; a password manager can create and remember them for you. Open <a href="https://claude.ai/">claude.ai</a> yourself instead of using an unexpected sign-in link. If you have a Taimatsu Claude account, check that you are in the Taimatsu organization before sharing work information.</p>
 
-<h2 id="agency">3. Excessive agency <span class="tag">OWASP LLM03</span></h2>
-<p><strong>The risk:</strong> with connectors, Claude can take actions: send emails, edit files, post messages. A mistake or a prompt injection can turn into a real action.</p>
+<h2 id="sensitive">Think before sharing information</h2>
+<p>Anything you type or upload is shared with the AI service. Check the whole file, including extra spreadsheet sheets, comments, or background details in a screenshot.</p>
+<div class="card bad"><p><strong>Keep secrets out of AI chats and uploads.</strong> This includes passwords, sign-in and recovery codes, and API keys or access tokens—special codes that let software use a service. Don’t ask Claude to remember them.</p></div>
+<p>Take care with personal details, payment information, and confidential customer or company information. Share only what the task needs: use a made-up example or remove identifying details. A name isn’t the only detail that can identify someone; an address or order number might too. If you need to use real sensitive information, talk with the engineering team about a safe way to proceed.</p>
+<p id="data"><strong>Storing information and training an AI are different.</strong> A service may store a conversation even if it doesn’t use it to train its AI. Anthropic says it does not use commercial Claude conversations for training by default, though feedback or choosing to allow data use can change this. Storage and deletion depend on the account and its settings. <a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training">Read Anthropic’s explanation</a>.</p>
+<p id="hidden">Before sharing a conversation, file, or Claude Project—a space that can hold chats, instructions, and files—check what it contains and who can open it. Keep secrets out of Project instructions and files too.</p>
+
+<h2 id="agency">Connecting email, files, and other tools</h2>
+<p>A <strong>connector</strong> lets Claude work with another service, such as Gmail or Google Drive. Depending on the access you allow, it may be able to read, change, or send information.</p>
+<p><strong>MCP</strong> is one way AI tools and other software communicate. An <strong>MCP server</strong> is software that makes information and actions available through a connection. Claude can connect to one using a <strong>custom connector</strong>, including software from a person or company outside Claude’s connector directory. <a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp">Learn more from Anthropic</a>.</p>
 <ul>
-  <li>Only turn on connectors you actually need.</li>
-  <li>Read every action before you click <strong>Allow</strong>. If you don't understand it, don't allow it.</li>
-  <li>Never choose "always allow" for actions that send, delete or pay.</li>
+  <li><strong>Check who provides it.</strong> Before connecting, make sure you trust the provider and obtained the connector or MCP server address from a trustworthy source, such as the service’s official website. Compare the name, provider, and address; a familiar logo alone isn’t proof. If you can’t verify it, leave it disconnected while you find out more.</li>
+  <li><strong>Check what access it requests.</strong> Give it only the access needed for your task. For example, finding files may not require permission to change or delete them. Some connections may act without asking every time, so check what you allow.</li>
+  <li><strong>Review actions.</strong> Before approving an action, check what will happen and where—for example, an email’s contents and recipients. Avoid “always allow” for actions such as sending or deleting.</li>
+  <li><strong>Disconnect connections you no longer need.</strong> Also disconnect a connection if it behaves unexpectedly. You may need to remove its access in the other service’s account settings.</li>
 </ul>
-<figure><img src="img/connectors.png" alt="Settings, Customize, Connectors" loading="lazy"><figcaption>Check what is connected:<ol><li>Open <strong>Settings → Customize</strong>.</li><li>Click <strong>Connectors</strong>. A tick means it is connected.</li><li><strong>Connect</strong>: only for connectors the company has approved.</li></ol></figcaption></figure>
+<p>A harmful or compromised connector can contain hidden instructions that try to make Claude do something you didn’t intend. This is known as <em>tool poisoning</em>. Checking the provider and limiting access reduce this risk, but cannot guarantee safety.</p>
 
-<h2 id="misinformation">4. Misinformation <span class="tag">OWASP LLM07</span></h2>
-<p><strong>The risk:</strong> Claude can make up facts, numbers, laws, quotes or sources that sound completely real. This is called a <em>hallucination</em>.</p>
+<h2 id="injection">When Claude reads emails and files</h2>
+<p>Someone can embed instructions aimed at Claude in an email, web page, image, or document. For example, a document you attach to give Claude context could contain instructions telling it to find a private spreadsheet and send it somewhere else. If Claude has access to your files and a way to send information, those instructions could try to make it do something you never asked for. This is known as <em>prompt injection</em>.</p>
+<p>These instructions can be hidden, so you may not be able to see them yourself. If Claude proposes something unrelated to your request, check the action and the information involved before allowing it. If it doesn’t make sense, don’t approve it. If information has already been accessed or sent unexpectedly, stop and follow the steps in <a href="#help">If something goes wrong</a>.</p>
+<p>Be particularly careful when an AI tool can both read outside material and act in your email, files, or other accounts. Limiting its access and checking actions can reduce the harm if it follows a misleading instruction.</p>
+
+<h2 id="misinformation">Check what AI gives you</h2>
+<p>Claude can produce an answer that sounds confident but contains mistakes. It can also give you a source or link that is wrong or doesn’t exist. Treat its answer as a starting point and check the parts you plan to use.</p>
 <ul>
-  <li>Check every fact, number and date before you use it.</li>
-  <li>For tax, legal, or accounting answers, always check the official source or an expert.</li>
-  <li>Ask Claude: <code>Which parts of your answer are you unsure about?</code></li>
+  <li><strong>Check facts and sources.</strong> Find the original source on a trusted website and make sure it says what the answer claims. Check names, dates, numbers, and quotations.</li>
+  <li><strong>Check links and downloads.</strong> Look at the address before opening a link. For important information, find the trusted website yourself instead of relying only on an AI-generated link.</li>
+  <li><strong>Check before sharing.</strong> Read the final text, confirm the recipients and attachments, and remove any private information that shouldn’t be included.</li>
+  <li><strong>Keep a person involved.</strong> For decisions affecting people, money, legal matters, or safety, have a knowledgeable person review the information and make the decision.</li>
 </ul>
+<h3 id="output">Code, formulas, and other instructions</h3>
+<p>Before running a command or program that Claude suggests, make sure you understand what it will do. If you don’t, leave it until you can review it with someone who does. Check spreadsheet formulas and try them on a copy before using them in a working file. Review AI-written text before publishing or sending it.</p>
 
-<h2 id="output">5. Improper output handling <span class="tag">OWASP LLM10</span></h2>
-<p><strong>The risk:</strong> using Claude's output directly in a real system without checking it, for example running code, pasting formulas into a finance sheet, or publishing text on the website.</p>
+<h2 id="help">If something goes wrong</h2>
+<p>If you share private information in the wrong place, notice an unexpected action, or think someone has accessed your account, <strong>stop and tell the engineering team promptly</strong>. You don’t need to know exactly what happened.</p>
+<p>Share the tool and account involved, roughly when it happened, what information or action may be affected, and what you have done. Don’t include passwords, recovery codes, or temporary sign-in codes.</p>
+
+<h2 id="further-reading">Further reading</h2>
 <ul>
-  <li>Treat output as a draft from a new colleague. Review it first.</li>
-  <li>Code should go through normal code review.</li>
-  <li>Test formulas and macros on a copy, not the real file.</li>
-</ul>
-
-<h2 id="hidden">6. Hidden context exposure <span class="tag">OWASP LLM08</span></h2>
-<p><strong>The risk:</strong> Project instructions and files you share can be read back by anyone who uses that Project.</p>
-<ul>
-  <li>Don't put secrets in Project instructions or knowledge files.</li>
-  <li>Check who has access before you share a Project or chat.</li>
-</ul>
-
-<h2>For people who build AI tools</h2>
-<p>If you connect Claude to our own systems (API, agents, custom tools), also read the full OWASP list: Supply chain (LLM04), Data and model poisoning (LLM05), Unbounded consumption (LLM06), and Vector and embedding weaknesses (LLM09). Talk to the engineering team before you start.</p>
-
-<h2>Something went wrong?</h2>
-<p>Pasted something you shouldn't have, or Claude did something strange? <strong>Tell the engineering team right away.</strong> Quick reporting is more important than being perfect.</p>
-
-<h2>Sources</h2>
-<ul>
-  <li><a href="https://genai.owasp.org/llm-top-10/">OWASP Top 10 for LLM Applications</a></li>
-  <li><a href="https://www.anthropic.com/product/enterprise">Claude Enterprise</a></li>
-  <li><a href="https://trust.anthropic.com">Anthropic Trust Center</a></li>
-  <li><a href="https://support.claude.com">Claude Help Center</a></li>
+  <li><a href="https://support.google.com/accounts/answer/10956730?hl=en">Google: Protecting your account with two-step verification</a>.</li>
+  <li><a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training">Anthropic: Is my data used for model training?</a></li>
+  <li><a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organizations-data">Anthropic: How long is my organization’s data stored?</a></li>
+  <li><a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp">Anthropic: Custom connectors and MCP</a>.</li>
+  <li><a href="https://www.cisa.gov/topics/cybersecurity-best-practices">CISA: Cybersecurity best practices</a> — general advice for staying safer online.</li>
 </ul>
 </main>
-<footer>Questions? Ask the engineering team.</footer>
+<footer>Take your time, check what you’re sharing, and review before acting.</footer>
 </body>
 </html>

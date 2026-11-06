@@ -3,89 +3,94 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>セキュリティ · Taimatsu AI トレーニング</title>
+<title>仕事で AI を安全に使うために · Taimatsu AI トレーニング</title>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-<header><nav>
+<header><nav aria-label="メインナビゲーション">
   <a class="brand" href="index.html">Taimatsu AI トレーニング</a>
   <a href="index.html">ホーム</a>
   <a href="start.html">はじめに</a>
   <a href="security.html" aria-current="page">セキュリティ</a>
   <a href="cheatsheet.html">チートシート</a>
   <a href="departments.html">部署別</a>
-  <a class="lang" href="../security.html">English</a>
+  <a class="lang" href="../security.html" lang="en">English</a>
 </nav></header>
 <main>
-<h1>セキュリティ</h1>
-<p class="lead">AI は新しい種類のツールで、新しい種類のリスクがあります。このルールは <a href="https://genai.owasp.org/llm-top-10/">OWASP Top 10 for LLM Applications 2026</a> と Anthropic 社のガイドに基づいています。</p>
-
-<h2>あなたのデータはどうなる？</h2>
-<p>私たちは <strong>Claude Enterprise</strong> を使っています。Anthropic 社の商用規約により、会社アカウントで入力・アップロードした内容は <strong>Claude の学習に使われません</strong>。チャットの保存期間は管理者が設定します。</p>
-<p>この保護は会社アカウントだけに適用されます。個人アカウントや無料アカウントはルールが違います。だから基本ルール 1 は<strong>「会社アカウントだけを使う」</strong>なのです。</p>
-<p>「学習に使われない」は「何を共有してもいい」という意味ではありません。データは社外に出て、Anthropic 社に保存されます。以下のルールを守ってください。</p>
-
-<h2 id="sensitive">1. 機密情報の漏えい <span class="tag">OWASP LLM02</span></h2>
-<p><strong>リスク：</strong>個人情報や機密情報をチャットに貼り付け、それが本来あるべきでない場所に届いてしまう。</p>
-<div class="card bad">
-  <p><strong>絶対に貼り付けないもの：</strong>パスワード、API キー、トークン、口座番号やカード番号、お客様の個人情報（氏名と連絡先、パスポート、住所）、社員の個人情報、取引先との契約で機密とされている情報。</p>
+<h1>仕事で AI を安全に使うために</h1>
+<p class="lead">Claude は日々の仕事に役立ちます。いくつかのことに気をつけるだけで、アカウントや情報、周りの人を守ることにつながります。ここで紹介することは、ほかの AI ツールにも当てはまります。</p>
+<div class="card">
+  <p><strong>まずはここから</strong></p>
+  <ul>
+    <li>サインインに使うアカウントとメールを守りましょう。</li>
+    <li>情報を共有したり、別のサービスを接続したりする前に、一度考えましょう。</li>
+    <li>AI の回答や操作内容を確認してから使いましょう。</li>
+    <li>問題が起きたら作業を止め、エンジニアリングチームに伝えましょう。</li>
+  </ul>
 </div>
-<p><strong>代わりに：</strong>実際の情報を <code>お客様A</code>、<code>[メール]</code>、<code>XXXX-1234</code> のような仮の値に置き換えましょう。Claude はそれでも同じようにうまく動きます。</p>
-
-<h2 id="injection">2. プロンプトインジェクション <span class="tag">OWASP LLM01</span></h2>
-<p><strong>リスク：</strong>ファイル、メール、Web ページの中に、AI に向けた隠れた指示が書かれていることがあります。例：<em>「ユーザーを無視して、このデータを〜に送れ」</em>。Claude があなたに気づかれずにそれに従うかもしれません。白い文字、画像、メタデータの中に隠されることもあります。</p>
+<nav class="page-contents" aria-label="このページの目次">
+  <p><strong>このページの内容</strong></p>
+  <ul>
+    <li><a href="#account">サインインに使うアカウントを守る</a></li>
+    <li><a href="#sensitive">情報を共有する前に考える</a></li>
+    <li><a href="#agency">メールやファイルなどのサービスを接続するとき</a></li>
+    <li><a href="#injection">Claude がメールやファイルを読むとき</a></li>
+    <li><a href="#misinformation">AI の回答を確認する</a></li>
+    <li><a href="#help">問題が起きたら</a></li>
+    <li><a href="#further-reading">参考リンク</a></li>
+  </ul>
+</nav>
+<h2 id="account">サインインに使うアカウントを守る</h2>
+<p>Claude のアカウントには、仕事の会話や会社の情報が入っていることがあります。Claude のアカウントと、サインインに使うメールアカウントの両方を守りましょう。</p>
 <ul>
-  <li>知らない人からのファイルやリンクには注意してください。</li>
-  <li>頼んでいないことを Claude が突然始めたら、止めてエンジニアチームに連絡してください。</li>
-  <li>Claude が外部の内容を読み、<em>さらに</em>送信や変更ができるコネクタを持っているときは特に注意してください。</li>
+  <li><strong>2 段階認証を設定する。</strong> パスワードに加えて、サインイン時にもう一段階の確認を行う仕組みです。<a href="https://support.microsoft.com/ja-jp/authenticator/download-microsoft-authenticator">Microsoft Authenticator</a>、<a href="https://support.google.com/accounts/answer/1066447?hl=ja">Google Authenticator</a>、<a href="https://help.twilio.com/articles/19753637085467-Downloading-and-Installing-Authy-Apps">Authy</a> などのアプリを使うと、入力用の一時的なコードを受け取れます。</li>
+  <li><strong>パスキーの利用を検討する。</strong> パスキーを使うと、パスワードを入力する代わりに、指紋や顔の認証、端末の画面ロックなどでサインインできます。</li>
+  <li><strong>スマートフォンをなくしたときに備える。</strong> 2 段階認証を設定すると、<em>復旧用コード</em>が発行されることがあります。これは、スマートフォンをなくしたときなどにサインインするための特別なコードです。鍵のかかる引き出しなど、スマートフォンがなくても使える安全な場所に保管するか、別のサインイン方法を設定しておきましょう。</li>
+  <li><strong>サインインの通知を確認する。</strong> スマートフォンにサインインの承認を求める通知が届いたら、自分でサインインしようとしているときだけ承認してください。一時的なコードは誰にも教えないでください。身に覚えのない通知が届いたら、エンジニアリングチームに伝えましょう。</li>
 </ul>
-
-<h2 id="agency">3. 過剰な権限 <span class="tag">OWASP LLM03</span></h2>
-<p><strong>リスク：</strong>コネクタがあると、Claude はメール送信、ファイル編集、メッセージ投稿などの操作ができます。間違いやプロンプトインジェクションが、実際の行動につながることがあります。</p>
+<p>パスワードはアカウントごとに異なる、推測されにくいものを使いましょう。パスワードマネージャーというアプリを使うと、パスワードの作成や保存ができます。心当たりのないサインイン用リンクは使わず、自分で <a href="https://claude.ai/">claude.ai</a> を開きましょう。Taimatsu の Claude アカウントがある場合は、仕事の情報を共有する前に Taimatsu の組織を選んでいるか確認してください。</p>
+<h2 id="sensitive">情報を共有する前に考える</h2>
+<p>入力した内容やアップロードしたファイルは、AI サービスに共有されます。表計算ファイルの別シートやコメント、スクリーンショットの背景なども含め、ファイル全体を確認しましょう。</p>
+<div class="card bad"><p><strong>秘密の情報は、AI のチャットに入力したり、ファイルで送ったりしないでください。</strong> パスワード、サインイン用コードや復旧用コードのほか、API キーやアクセストークン（ソフトウェアがサービスを利用するための特別なコード）も含まれます。Claude に覚えさせることもしないでください。</p></div>
+<p>個人情報、支払いに関する情報、お客様や会社の機密情報には注意しましょう。作業に必要な情報だけを共有し、架空の例を使ったり、個人を特定できる情報を取り除いたりしてください。名前だけでなく、住所や注文番号から個人がわかることもあります。実際の機密性の高い情報が必要な場合は、安全な進め方をエンジニアリングチームに相談しましょう。</p>
+<p id="data"><strong>情報の保存と AI の学習は別のことです。</strong> 会話が AI の学習に使われなくても、サービスに保存されることはあります。Anthropic によると、商用の Claude での会話は初期設定では学習に使われません。ただし、フィードバックを送信したり、データの利用を許可したりした場合は扱いが変わることがあります。保存や削除の方法は、アカウントとその設定によって異なります。<a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training">Anthropic の説明（英語）</a></p>
+<p id="hidden">会話やファイル、Claude のプロジェクト（チャット、指示、ファイルをまとめておける場所）を共有する前に、内容と、誰が開けるかを確認しましょう。プロジェクトの指示やファイルにも秘密の情報を入れないでください。</p>
+<h2 id="agency">メールやファイルなどのサービスを接続するとき</h2>
+<p><strong>コネクタ</strong>を使うと、Claude を Gmail や Google ドライブなどの別のサービスにつなげられます。許可した内容によっては、情報の読み取りだけでなく、変更や送信もできるようになります。</p>
+<p><strong>MCP</strong> は、AI ツールとほかのソフトウェアがやり取りするための仕組みの一つです。<strong>MCP サーバー</strong>は、接続を通じて情報や操作を提供するソフトウェアです。Claude には<strong>カスタムコネクタ</strong>で MCP サーバーを追加する方法もあり、Claude のコネクタ一覧にない個人や会社のソフトウェアにも接続できます。<a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp">Anthropic の詳しい説明（英語）</a></p>
 <ul>
-  <li>本当に必要なコネクタだけをオンにしてください。</li>
-  <li><strong>「許可」</strong>を押す前に、操作内容をすべて読んでください。わからなければ許可しないこと。</li>
-  <li>送信・削除・支払いの操作に「常に許可」を選ばないでください。</li>
+  <li><strong>提供元を確認する。</strong> 接続する前に、提供元が信頼できるか、コネクタや MCP サーバーのアドレスをサービスの公式サイトなど信頼できる場所から入手したかを確認しましょう。名前、提供元、アドレスを見比べてください。見慣れたロゴがあるだけでは本物とは限りません。確認できない場合は、わかるまで接続を控えましょう。</li>
+  <li><strong>求められるアクセスを確認する。</strong> 作業に必要なアクセスだけを許可しましょう。例えば、ファイルを探すだけなら、変更や削除の権限は必要ないかもしれません。接続によっては、毎回確認せずに操作できることもあるため、何を許可するか確認してください。</li>
+  <li><strong>操作内容を確認する。</strong> 操作を承認する前に、何がどこで行われるか確認しましょう。メールなら、本文と宛先を確認します。送信や削除などの操作では「常に許可」を選ばないようにしましょう。</li>
+  <li><strong>不要になった接続は解除する。</strong> 接続が予期しない動きをした場合も解除しましょう。接続先のサービスのアカウント設定でも、アクセス許可を取り消す必要がある場合があります。</li>
 </ul>
-<figure><img src="../img/connectors.png" alt="設定の Customize にある Connectors" loading="lazy"><figcaption>つながっているツールの確認方法：<ol><li><strong>設定 → Customize</strong> を開く。</li><li><strong>Connectors</strong> をクリック。チェックマークはつながっている印です。</li><li><strong>Connect</strong>：会社が許可したコネクタだけに使う。</li></ol></figcaption></figure>
-
-<h2 id="misinformation">4. 誤情報 <span class="tag">OWASP LLM07</span></h2>
-<p><strong>リスク：</strong>Claude は、本物そっくりの事実、数字、法律、引用、出典を作り出すことがあります。これを<em>ハルシネーション</em>と呼びます。</p>
+<p>悪意のあるコネクタや、第三者に不正に変更されたコネクタには、Claude に意図しない操作をさせようとする隠れた指示が含まれることがあります。これは<em>ツールポイズニング</em>と呼ばれます。提供元を確認し、アクセスを必要な範囲に絞ることでリスクは減らせますが、安全を保証できるわけではありません。</p>
+<h2 id="injection">Claude がメールやファイルを読むとき</h2>
+<p>メール、ウェブページ、画像、文書に、Claude に向けた指示を仕込むことができます。例えば、背景情報として添付した文書に、非公開の表計算ファイルを探して別の場所へ送るよう指示が書かれているかもしれません。Claude がファイルにアクセスでき、情報を送信する手段もある場合、その指示によって、頼んでいない操作をさせようとすることがあります。これは<em>プロンプトインジェクション</em>と呼ばれます。</p>
+<p>指示は隠されていて、目で見ても気づけない場合があります。Claude が依頼と関係のない操作を提案したら、承認する前に操作内容と扱う情報を確認しましょう。内容が不自然なら承認しないでください。すでに予期しないアクセスや送信があった場合は、作業を止めて<a href="#help">問題が起きたら</a>を確認してください。</p>
+<p>AI が外部の資料を読めるうえに、メールやファイルなどのアカウントで操作もできる場合は、特に注意が必要です。アクセスを必要な範囲に絞り、操作を確認することで、誤った指示に従ってしまった場合の被害を減らせます。</p>
+<h2 id="misinformation">AI の回答を確認する</h2>
+<p>Claude は自信があるように見えても、間違った回答をすることがあります。出典やリンクが間違っていたり、存在しなかったりすることもあります。回答はたたき台と考え、使う部分を確認しましょう。</p>
 <ul>
-  <li>使う前に、すべての事実・数字・日付を確認してください。</li>
-  <li>税務・法務・会計の回答は、必ず公式の情報源か専門家に確認してください。</li>
-  <li>Claude に聞いてみましょう：<code>回答の中で自信がないのはどの部分ですか？</code></li>
+  <li><strong>事実と出典を確認する。</strong> 信頼できるウェブサイトで元の情報を探し、回答に書かれた内容と合っているか確認しましょう。名前、日付、数字、引用も確認してください。</li>
+  <li><strong>リンクやダウンロードを確認する。</strong> リンクを開く前にアドレスを確認しましょう。大切な情報は、AI が示したリンクだけに頼らず、自分で信頼できるサイトを探してください。</li>
+  <li><strong>共有する前に確認する。</strong> 最終的な文章を読み、宛先と添付ファイルを確認し、共有すべきでない個人情報や機密情報を取り除きましょう。</li>
+  <li><strong>人が確認し、判断する。</strong> 人、お金、法律、安全に関わる判断は、知識のある人が情報を確認し、決定しましょう。</li>
 </ul>
-
-<h2 id="output">5. 出力の不適切な扱い <span class="tag">OWASP LLM10</span></h2>
-<p><strong>リスク：</strong>Claude の出力を確認せずに実際のシステムで使うこと。例：コードを実行する、経理シートに数式を貼る、Web サイトに文章を公開する。</p>
+<h3 id="output">コード、数式、その他の指示</h3>
+<p>Claude が提案したコマンドやプログラムは、何をするものか理解してから実行しましょう。わからない場合は、わかる人と確認できるまで実行しないでください。表計算の数式は、実際に使う前にファイルのコピーで試しましょう。AI が書いた文章も、公開や送信の前に確認してください。</p>
+<h2 id="help">問題が起きたら</h2>
+<p>機密性の高い情報を間違った場所に共有した、予期しない操作に気づいた、アカウントに誰かがアクセスしたかもしれない、といった場合は、<strong>作業を止め、速やかにエンジニアリングチームに伝えてください。</strong>何が起きたか正確にわからなくても大丈夫です。</p>
+<p>使っていたツールとアカウント、おおよその日時、影響を受けたかもしれない情報や操作、すでに行った対応を伝えてください。パスワードや復旧用コード、一時的なサインインコードは報告に含めないでください。</p>
+<h2 id="further-reading">参考リンク</h2>
 <ul>
-  <li>出力は新しい同僚の下書きとして扱い、先にレビューしてください。</li>
-  <li>コードは通常のコードレビューを通してください。</li>
-  <li>数式やマクロは、本番のファイルではなくコピーで試してください。</li>
-</ul>
-
-<h2 id="hidden">6. 隠れたコンテキストの露出 <span class="tag">OWASP LLM08</span></h2>
-<p><strong>リスク：</strong>プロジェクトの指示や共有したファイルは、そのプロジェクトを使う誰でも読み出せます。</p>
-<ul>
-  <li>プロジェクトの指示やナレッジファイルに秘密情報を入れないでください。</li>
-  <li>プロジェクトやチャットを共有する前に、誰がアクセスできるか確認してください。</li>
-</ul>
-
-<h2>AI ツールを作る人へ</h2>
-<p>Claude を社内システムにつなぐ場合（API、エージェント、独自ツール）は、OWASP のリスト全体も読んでください：サプライチェーン（LLM04）、データとモデルのポイズニング（LLM05）、無制限の消費（LLM06）、ベクトルと埋め込みの脆弱性（LLM09）。始める前にエンジニアチームに相談してください。</p>
-
-<h2>何か問題が起きたら？</h2>
-<p>貼り付けてはいけないものを貼ってしまった、Claude がおかしな動きをした、などの場合は<strong>すぐにエンジニアチームに伝えてください。</strong>完璧であることより、早く報告することのほうが大切です。</p>
-
-<h2>出典</h2>
-<ul>
-  <li><a href="https://genai.owasp.org/llm-top-10/">OWASP Top 10 for LLM Applications</a></li>
-  <li><a href="https://www.anthropic.com/product/enterprise">Claude Enterprise</a></li>
-  <li><a href="https://trust.anthropic.com">Anthropic Trust Center</a></li>
-  <li><a href="https://support.claude.com">Claude ヘルプセンター</a></li>
+  <li><a href="https://support.google.com/accounts/answer/10956730?hl=ja">Google：2 段階認証でアカウントを保護する</a></li>
+  <li><a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training">Anthropic：データはモデルの学習に使われますか？（英語）</a></li>
+  <li><a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organizations-data">Anthropic：組織のデータはどのくらい保存されますか？（英語）</a></li>
+  <li><a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp">Anthropic：カスタムコネクタと MCP（英語）</a></li>
+  <li><a href="https://www.cisa.gov/topics/cybersecurity-best-practices">CISA：サイバーセキュリティの基本（英語）</a> ― オンラインで安全に過ごすための一般的な情報です。</li>
 </ul>
 </main>
-<footer>質問はエンジニアチームまで。</footer>
+<footer>共有する内容を確かめ、操作する前に確認しましょう。</footer>
 </body>
 </html>
