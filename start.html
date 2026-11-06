@@ -81,10 +81,46 @@ Tone: friendly but professional. Max 120 words.</pre>
 Always write in a warm, simple style. Japanese first, then English.
 Never invent product features. Ask if something is unclear.</pre>
 
-<h2>7. Artifacts</h2>
+<h2>7. Memory, instructions and skills</h2>
+<p>Three ways to stop repeating yourself. Claude uses them in every chat, so you explain things once.</p>
+
+<h3>Memory: what Claude remembers about you</h3>
+<p>Claude can remember useful facts from your chats, like your job, your team and how you like answers written. You can also tell it directly:</p>
+<pre>Remember that I work in the Kyoto office and write to customers in Japanese and English.</pre>
+<ul>
+  <li>See, edit or delete everything Claude remembers in <strong>Settings</strong>.</li>
+  <li>Only work facts. <strong>Never ask Claude to remember passwords, customer details or private information.</strong></li>
+  <li>If an answer uses something old or wrong, tell Claude: <code>Forget that. It's now ...</code></li>
+</ul>
+
+<h3>Instructions (.md files): your standing rules</h3>
+<p>Instructions are rules Claude follows every time, written once. You will often see them saved as <strong>.md</strong> files (Markdown). It is just a plain text file with simple headings, and Claude reads it very well.</p>
+<ul>
+  <li><strong>For you:</strong> Settings, Profile. Write how you like answers (language, length, tone).</li>
+  <li><strong>For a team or task:</strong> Project instructions (see section 6), or a .md file added to the Project.</li>
+</ul>
+<p>Example .md file for a team:</p>
+<pre># Customer support style
+- Japanese first, then English.
+- Polite, short sentences. Max 150 words.
+- Never promise refunds or dates. Ask the team lead first.
+- Sign off as "TAIMATSU Customer Support".</pre>
+<p>Keep instructions short and clear. If Claude keeps making the same mistake, add one line to the instructions instead of correcting it in every chat.</p>
+
+<h3>Skills: ready-made know-how</h3>
+<p>A skill is a saved package of instructions (and sometimes templates) for one kind of task, like making slides, writing a monthly report in the company format, or checking a contract. Claude uses the skill on its own when your request matches it.</p>
+<ul>
+  <li>Find them in <strong>Settings, Capabilities</strong>. Some skills come built in (for example Word, Excel and PowerPoint files).</li>
+  <li>A skill is a folder with a <strong>SKILL.md</strong> file inside: a name, when to use it, and the steps to follow.</li>
+  <li><strong>Only add skills from the company or the engineering team.</strong> A skill from the internet can tell Claude to do things you did not ask for, just like an unsafe connector.</li>
+</ul>
+<p>Doing the same task every week? Tell Claude:</p>
+<pre>I write this report every Monday. Help me turn how we do it into a skill.</pre>
+
+<h2>8. Artifacts</h2>
 <p>When Claude makes something bigger, like a document, a table or a small web page, it can open it in a side panel called an Artifact. You can edit it, copy it, or download it.</p>
 
-<h2>8. Connectors</h2>
+<h2>9. Connectors</h2>
 <p>Connectors let Claude read or act in other tools, like Google Drive, Gmail or Slack. They are powerful but come with extra risk. Only use connectors the company has approved, and always check what Claude wants to do before you click Allow. See <a href="security.html#agency">Excessive agency</a>.</p>
 
 <h2>Practice</h2>
