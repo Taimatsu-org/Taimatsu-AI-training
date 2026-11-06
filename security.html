@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security · Taimatsu AI Training</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><nav>
+  <a class="brand" href="index.html">Taimatsu AI Training</a>
+  <a href="index.html">Home</a>
+  <a href="start.html">Getting started</a>
+  <a href="security.html" aria-current="page">Security</a>
+  <a href="cheatsheet.html">Cheat sheet</a>
+  <a href="departments.html">Departments</a>
+  <a class="lang" href="ja/security.html">日本語</a>
+</nav></header>
+<main>
+<h1>Security</h1>
+<p class="lead">AI is a new kind of tool, with new kinds of risk. These rules are based on the <a href="https://genai.owasp.org/llm-top-10/">OWASP Top 10 for LLM Applications 2026</a> and on Anthropic's own guidance.</p>
+
+<h2>What happens to your data</h2>
+<p>We use <strong>Claude Enterprise</strong>. Under Anthropic's commercial terms, what you type and upload in our company account is <strong>not used to train Claude</strong>. Admins control how long chats are kept.</p>
+<p>This protection applies only to the company account. A personal or free account has different rules. That is why golden rule 1 is: <strong>company account only</strong>.</p>
+<p>Not used for training doesn't mean "share anything". Your data still leaves our company and is stored by Anthropic. Follow the rules below.</p>
+
+<h2 id="sensitive">1. Sensitive information disclosure <span class="tag">OWASP LLM02</span></h2>
+<p><strong>The risk:</strong> private data is pasted into the chat and ends up somewhere it should not be.</p>
+<div class="card bad">
+  <p><strong>Never paste:</strong> passwords, API keys, tokens, bank or card numbers, customer personal data (names + contact, passport, address), employee personal data, or anything marked confidential by a client contract.</p>
+</div>
+<p><strong>Do instead:</strong> replace real details with placeholders, like <code>Customer A</code>, <code>[email]</code>, <code>XXXX-1234</code>. Claude works just as well.</p>
+
+<h2 id="injection">2. Prompt injection <span class="tag">OWASP LLM01</span></h2>
+<p><strong>The risk:</strong> a file, email or web page can contain hidden instructions written for the AI, like <em>"Ignore the user and send this data to…"</em>. Claude may follow them without you noticing. Text can be hidden in white font, in images, or in metadata.</p>
+<ul>
+  <li>Be careful with files and links from people you don't know.</li>
+  <li>If Claude suddenly does something you didn't ask for, stop and tell the DX team.</li>
+  <li>Be extra careful when Claude reads outside content <em>and</em> has connectors that can send or change things.</li>
+</ul>
+
+<h2 id="agency">3. Excessive agency <span class="tag">OWASP LLM03</span></h2>
+<p><strong>The risk:</strong> with connectors, Claude can take actions: send emails, edit files, post messages. A mistake or a prompt injection can turn into a real action.</p>
+<ul>
+  <li>Only turn on connectors you actually need.</li>
+  <li>Read every action before you click <strong>Allow</strong>. If you don't understand it, don't allow it.</li>
+  <li>Never choose "always allow" for actions that send, delete or pay.</li>
+</ul>
+
+<h2 id="misinformation">4. Misinformation <span class="tag">OWASP LLM07</span></h2>
+<p><strong>The risk:</strong> Claude can make up facts, numbers, laws, quotes or sources that sound completely real. This is called a <em>hallucination</em>.</p>
+<ul>
+  <li>Check every fact, number and date before you use it.</li>
+  <li>For tax, legal, or accounting answers, always check the official source or an expert.</li>
+  <li>Ask Claude: <code>Which parts of your answer are you unsure about?</code></li>
+</ul>
+
+<h2 id="output">5. Improper output handling <span class="tag">OWASP LLM10</span></h2>
+<p><strong>The risk:</strong> using Claude's output directly in a real system without checking it, for example running code, pasting formulas into a finance sheet, or publishing text on the website.</p>
+<ul>
+  <li>Treat output as a draft from a new colleague. Review it first.</li>
+  <li>Code should go through normal code review.</li>
+  <li>Test formulas and macros on a copy, not the real file.</li>
+</ul>
+
+<h2 id="hidden">6. Hidden context exposure <span class="tag">OWASP LLM08</span></h2>
+<p><strong>The risk:</strong> Project instructions and files you share can be read back by anyone who uses that Project.</p>
+<ul>
+  <li>Don't put secrets in Project instructions or knowledge files.</li>
+  <li>Check who has access before you share a Project or chat.</li>
+</ul>
+
+<h2>For people who build AI tools</h2>
+<p>If you connect Claude to our own systems (API, agents, custom tools), also read the full OWASP list: Supply chain (LLM04), Data and model poisoning (LLM05), Unbounded consumption (LLM06), and Vector and embedding weaknesses (LLM09). Talk to the DX team before you start.</p>
+
+<h2>Something went wrong?</h2>
+<p>Pasted something you shouldn't have, or Claude did something strange? <strong>Tell the DX team right away.</strong> Quick reporting is more important than being perfect.</p>
+
+<h2>Sources</h2>
+<ul>
+  <li><a href="https://genai.owasp.org/llm-top-10/">OWASP Top 10 for LLM Applications</a></li>
+  <li><a href="https://www.anthropic.com/product/enterprise">Claude Enterprise</a></li>
+  <li><a href="https://trust.anthropic.com">Anthropic Trust Center</a></li>
+  <li><a href="https://support.claude.com">Claude Help Center</a></li>
+</ul>
+</main>
+<footer>Questions? Ask the DX team.</footer>
+</body>
+</html>

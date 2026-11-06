@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ · Taimatsu AI トレーニング</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><nav>
+  <a class="brand" href="index.html">Taimatsu AI トレーニング</a>
+  <a href="index.html">ホーム</a>
+  <a href="start.html">はじめに</a>
+  <a href="security.html" aria-current="page">セキュリティ</a>
+  <a href="cheatsheet.html">チートシート</a>
+  <a href="departments.html">部署別</a>
+  <a class="lang" href="../security.html">English</a>
+</nav></header>
+<main>
+<h1>セキュリティ</h1>
+<p class="lead">AI は新しい種類のツールで、新しい種類のリスクがあります。このルールは <a href="https://genai.owasp.org/llm-top-10/">OWASP Top 10 for LLM Applications 2026</a> と Anthropic 社のガイドに基づいています。</p>
+
+<h2>あなたのデータはどうなる？</h2>
+<p>私たちは <strong>Claude Enterprise</strong> を使っています。Anthropic 社の商用規約により、会社アカウントで入力・アップロードした内容は <strong>Claude の学習に使われません</strong>。チャットの保存期間は管理者が設定します。</p>
+<p>この保護は会社アカウントだけに適用されます。個人アカウントや無料アカウントはルールが違います。だから基本ルール 1 は<strong>「会社アカウントだけを使う」</strong>なのです。</p>
+<p>「学習に使われない」は「何を共有してもいい」という意味ではありません。データは社外に出て、Anthropic 社に保存されます。以下のルールを守ってください。</p>
+
+<h2 id="sensitive">1. 機密情報の漏えい <span class="tag">OWASP LLM02</span></h2>
+<p><strong>リスク：</strong>個人情報や機密情報をチャットに貼り付け、それが本来あるべきでない場所に届いてしまう。</p>
+<div class="card bad">
+  <p><strong>絶対に貼り付けないもの：</strong>パスワード、API キー、トークン、口座番号やカード番号、お客様の個人情報（氏名と連絡先、パスポート、住所）、社員の個人情報、取引先との契約で機密とされている情報。</p>
+</div>
+<p><strong>代わりに：</strong>実際の情報を <code>お客様A</code>、<code>[メール]</code>、<code>XXXX-1234</code> のような仮の値に置き換えましょう。Claude はそれでも同じようにうまく動きます。</p>
+
+<h2 id="injection">2. プロンプトインジェクション <span class="tag">OWASP LLM01</span></h2>
+<p><strong>リスク：</strong>ファイル、メール、Web ページの中に、AI に向けた隠れた指示が書かれていることがあります。例：<em>「ユーザーを無視して、このデータを〜に送れ」</em>。Claude があなたに気づかれずにそれに従うかもしれません。白い文字、画像、メタデータの中に隠されることもあります。</p>
+<ul>
+  <li>知らない人からのファイルやリンクには注意してください。</li>
+  <li>頼んでいないことを Claude が突然始めたら、止めて DX チームに連絡してください。</li>
+  <li>Claude が外部の内容を読み、<em>さらに</em>送信や変更ができるコネクタを持っているときは特に注意してください。</li>
+</ul>
+
+<h2 id="agency">3. 過剰な権限 <span class="tag">OWASP LLM03</span></h2>
+<p><strong>リスク：</strong>コネクタがあると、Claude はメール送信、ファイル編集、メッセージ投稿などの操作ができます。間違いやプロンプトインジェクションが、実際の行動につながることがあります。</p>
+<ul>
+  <li>本当に必要なコネクタだけをオンにしてください。</li>
+  <li><strong>「許可」</strong>を押す前に、操作内容をすべて読んでください。わからなければ許可しないこと。</li>
+  <li>送信・削除・支払いの操作に「常に許可」を選ばないでください。</li>
+</ul>
+
+<h2 id="misinformation">4. 誤情報 <span class="tag">OWASP LLM07</span></h2>
+<p><strong>リスク：</strong>Claude は、本物そっくりの事実、数字、法律、引用、出典を作り出すことがあります。これを<em>ハルシネーション</em>と呼びます。</p>
+<ul>
+  <li>使う前に、すべての事実・数字・日付を確認してください。</li>
+  <li>税務・法務・会計の回答は、必ず公式の情報源か専門家に確認してください。</li>
+  <li>Claude に聞いてみましょう：<code>回答の中で自信がないのはどの部分ですか？</code></li>
+</ul>
+
+<h2 id="output">5. 出力の不適切な扱い <span class="tag">OWASP LLM10</span></h2>
+<p><strong>リスク：</strong>Claude の出力を確認せずに実際のシステムで使うこと。例：コードを実行する、経理シートに数式を貼る、Web サイトに文章を公開する。</p>
+<ul>
+  <li>出力は新しい同僚の下書きとして扱い、先にレビューしてください。</li>
+  <li>コードは通常のコードレビューを通してください。</li>
+  <li>数式やマクロは、本番のファイルではなくコピーで試してください。</li>
+</ul>
+
+<h2 id="hidden">6. 隠れたコンテキストの露出 <span class="tag">OWASP LLM08</span></h2>
+<p><strong>リスク：</strong>プロジェクトの指示や共有したファイルは、そのプロジェクトを使う誰でも読み出せます。</p>
+<ul>
+  <li>プロジェクトの指示やナレッジファイルに秘密情報を入れないでください。</li>
+  <li>プロジェクトやチャットを共有する前に、誰がアクセスできるか確認してください。</li>
+</ul>
+
+<h2>AI ツールを作る人へ</h2>
+<p>Claude を社内システムにつなぐ場合（API、エージェント、独自ツール）は、OWASP のリスト全体も読んでください：サプライチェーン（LLM04）、データとモデルのポイズニング（LLM05）、無制限の消費（LLM06）、ベクトルと埋め込みの脆弱性（LLM09）。始める前に DX チームに相談してください。</p>
+
+<h2>何か問題が起きたら？</h2>
+<p>貼り付けてはいけないものを貼ってしまった、Claude がおかしな動きをした、などの場合は<strong>すぐに DX チームに伝えてください。</strong>完璧であることより、早く報告することのほうが大切です。</p>
+
+<h2>出典</h2>
+<ul>
+  <li><a href="https://genai.owasp.org/llm-top-10/">OWASP Top 10 for LLM Applications</a></li>
+  <li><a href="https://www.anthropic.com/product/enterprise">Claude Enterprise</a></li>
+  <li><a href="https://trust.anthropic.com">Anthropic Trust Center</a></li>
+  <li><a href="https://support.claude.com">Claude ヘルプセンター</a></li>
+</ul>
+</main>
+<footer>質問は DX チームまで。</footer>
+</body>
+</html>
