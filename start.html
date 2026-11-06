@@ -36,11 +36,14 @@
   <li><strong>Read the summary and delete anything private or not about work</strong> (family, health, passwords, customer names).</li>
   <li>Paste the cleaned summary into Claude's <a href="https://claude.ai/settings/capabilities?open_memory_import=true">memory settings</a>. Make sure you are in the <strong>Taimatsu</strong> organisation first.</li>
 </ol>
+<figure><img src="img/import-copy.png" alt="claude.com/import-memory with the Copy prompt button" loading="lazy"><figcaption>Step 1: on claude.com/import-memory, click <strong>Copy prompt</strong>.</figcaption></figure>
+<figure><img src="img/import-start.png" alt="Start import button in Settings, Your Claude" loading="lazy"><figcaption>Step 4: in <strong>Settings → Your Claude</strong>, click <strong>Start import</strong>, paste the cleaned summary and add it to memory.</figcaption></figure>
 <p>You can see and edit everything Claude remembers in Settings at any time.</p>
 
 <h2>3. Your first chat</h2>
 <p>Type a message in the box and press Enter. Try this:</p>
 <pre>I just started using Claude at work. Explain in 5 short bullet points what you can help me with as a [your job].</pre>
+<figure><img src="img/new-chat.png" alt="The empty chat box on claude.ai" loading="lazy"><figcaption>Type your message here and press Enter.</figcaption></figure>
 <p>Then reply to the answer. A chat is a conversation: you can say "shorter", "more formal", "in Japanese", or "that's wrong, here's why".</p>
 <p>Start a <strong>new chat</strong> for each new topic. Long chats about many things give worse answers.</p>
 
@@ -72,10 +75,14 @@ Tone: friendly but professional. Max 120 words.</pre>
 <h2>5. Files and images</h2>
 <p>You can drag PDFs, Word, Excel, CSV files and screenshots into the chat, then ask about them:</p>
 <pre>Summarise this contract in 5 bullet points and list anything unusual.</pre>
+<figure><img src="img/add-files.png" alt="The plus menu with Upload or add files" loading="lazy"><figcaption>Or use the menu:<ol><li>Click <strong>+</strong> under the chat box.</li><li>Click <strong>Upload or add files</strong> and choose the file.</li></ol></figcaption></figure>
 <p>Before you upload, check the file follows the <a href="security.html">security rules</a>.</p>
 
 <h2>6. Projects</h2>
 <p>A Project is a folder for chats about the same work. You add files and instructions once, and every chat in the Project can use them. Good for: a team style guide, product info, templates you use every week.</p>
+<figure><img src="img/projects-new.png" alt="Projects page with the New project button" loading="lazy"><figcaption>How to make a Project:<ol><li>Open <strong>Projects</strong> in the left menu and click <strong>New project</strong>.</li></ol></figcaption></figure>
+<figure><img src="img/project-create.png" alt="Create a project form" loading="lazy"><figcaption><ol start="2"><li>Give the Project a name.</li><li>Describe what it is for: the goal, the team, the background.</li><li>Click <strong>Create project</strong>.</li></ol></figcaption></figure>
+<figure><img src="img/project-context.png" alt="A Project page with the Context panel" loading="lazy"><figcaption><ol start="5"><li>Open <strong>Context</strong> to add files every chat in the Project can use.</li></ol></figcaption></figure>
 <p>Example Project instructions:</p>
 <pre>You help the Creative team write product copy.
 Always write in a warm, simple style. Japanese first, then English.
@@ -88,17 +95,20 @@ Never invent product features. Ask if something is unclear.</pre>
 <p>Claude can remember useful facts from your chats, like your job, your team and how you like answers written. You can also tell it directly:</p>
 <pre>Remember that I work in the Kyoto office and write to customers in Japanese and English.</pre>
 <ul>
-  <li>See, edit or delete everything Claude remembers in <strong>Settings</strong>.</li>
+  <li>See, edit or delete everything Claude remembers in <strong>Settings → Your Claude → Memory</strong>.</li>
   <li>Only work facts. <strong>Never ask Claude to remember passwords, customer details or private information.</strong></li>
   <li>If an answer uses something old or wrong, tell Claude: <code>Forget that. It's now ...</code></li>
 </ul>
+<figure><img src="img/memory-settings.png" alt="Settings, Your Claude, with the memory options" loading="lazy"><figcaption><ol><li>Open <strong>Settings → Your Claude</strong>.</li><li>Memory switches: Claude remembers from your chats.</li><li><strong>Manage</strong>: see, edit or delete what Claude remembers.</li><li><strong>Start import</strong>: bring memory from another AI (section 2).</li></ol></figcaption></figure>
 
 <h3>Instructions (.md files): your standing rules</h3>
 <p>Instructions are rules Claude follows every time, written once. You will often see them saved as <strong>.md</strong> files (Markdown). It is just a plain text file with simple headings, and Claude reads it very well.</p>
 <ul>
-  <li><strong>For you:</strong> Settings, Profile. Write how you like answers (language, length, tone).</li>
+  <li><strong>For you:</strong> <strong>Settings → Your Claude → Instructions</strong>. Write how you like answers (language, length, tone).</li>
   <li><strong>For a team or task:</strong> Project instructions (see section 6), or a .md file added to the Project.</li>
 </ul>
+<figure><img src="img/instructions.png" alt="Settings, Your Claude, Instructions box" loading="lazy"><figcaption><ol><li>Open <strong>Settings → Your Claude</strong>.</li><li>Write your personal rules in <strong>Instructions</strong>.</li></ol></figcaption></figure>
+<figure><img src="img/project-md.png" alt="A .md file in a Project" loading="lazy"><figcaption>A .md file added to a Project (the "MD" label shows the file type).</figcaption></figure>
 <p>Example .md file for a team:</p>
 <pre># Customer support style
 - Japanese first, then English.
@@ -110,10 +120,11 @@ Never invent product features. Ask if something is unclear.</pre>
 <h3>Skills: ready-made know-how</h3>
 <p>A skill is a saved package of instructions (and sometimes templates) for one kind of task, like making slides, writing a monthly report in the company format, or checking a contract. Claude uses the skill on its own when your request matches it.</p>
 <ul>
-  <li>Find them in <strong>Settings, Capabilities</strong>. Some skills come built in (for example Word, Excel and PowerPoint files).</li>
+  <li>Find them in <strong>Settings → Customize → Skills</strong>. Some skills come built in (for example Word, Excel and PowerPoint files).</li>
   <li>A skill is a folder with a <strong>SKILL.md</strong> file inside: a name, when to use it, and the steps to follow.</li>
   <li><strong>Only add skills from the company or the engineering team.</strong> A skill from the internet can tell Claude to do things you did not ask for, just like an unsafe connector.</li>
 </ul>
+<figure><img src="img/skills.png" alt="Settings, Customize, Skills" loading="lazy"><figcaption><ol><li>Open <strong>Settings → Customize</strong>.</li><li>Click <strong>Skills</strong> to see your skills and the skill directory.</li><li><strong>Add</strong>: only for skills from the company or the engineering team.</li></ol></figcaption></figure>
 <p>Doing the same task every week? Tell Claude:</p>
 <pre>I write this report every Monday. Help me turn how we do it into a skill.</pre>
 
@@ -122,6 +133,7 @@ Never invent product features. Ask if something is unclear.</pre>
 
 <h2>9. Connectors</h2>
 <p>Connectors let Claude read or act in other tools, like Google Drive, Gmail or Slack. They are powerful but come with extra risk. Only use connectors the company has approved, and always check what Claude wants to do before you click Allow. See <a href="security.html#agency">Excessive agency</a>.</p>
+<figure><img src="img/connectors.png" alt="Settings, Customize, Connectors" loading="lazy"><figcaption><ol><li>Open <strong>Settings → Customize</strong>.</li><li>Click <strong>Connectors</strong> to see what is connected.</li><li><strong>Connect</strong>: only for connectors the company has approved.</li></ol></figcaption></figure>
 
 <h2>Practice</h2>
 <ol>

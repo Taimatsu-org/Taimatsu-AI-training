@@ -36,11 +36,14 @@
   <li><strong>まとめを読み、個人的な内容や仕事に関係ない内容を削除してください</strong>（家族、健康、パスワード、お客様の名前など）。</li>
   <li>整理したまとめを、Claude の<a href="https://claude.ai/settings/capabilities?open_memory_import=true">メモリー設定</a>に貼り付けます。先に <strong>Taimatsu</strong> の組織に切り替えていることを確認してください。</li>
 </ol>
+<figure><img src="../img/import-copy.png" alt="claude.com/import-memory の Copy prompt ボタン" loading="lazy"><figcaption>手順 1：claude.com/import-memory で <strong>Copy prompt</strong> をクリック。</figcaption></figure>
+<figure><img src="../img/import-start.png" alt="設定の Your Claude にある Start import ボタン" loading="lazy"><figcaption>手順 4：<strong>設定 → Your Claude</strong> で <strong>Start import</strong> をクリックし、整理したまとめを貼り付けてメモリーに追加。</figcaption></figure>
 <p>Claude が覚えている内容は、いつでも設定から確認・編集できます。</p>
 
 <h2>3. 最初のチャット</h2>
 <p>入力欄にメッセージを書いて Enter を押します。試しにこれを送ってみましょう：</p>
 <pre>仕事で Claude を使い始めました。[あなたの職種] として、あなたが手伝えることを短い箇条書き 5 つで説明してください。</pre>
+<figure><img src="../img/new-chat.png" alt="claude.ai の空のチャット入力欄" loading="lazy"><figcaption>ここにメッセージを書いて Enter を押します。</figcaption></figure>
 <p>答えに返信もできます。チャットは会話です。「もっと短く」「もっと丁寧に」「英語で」「それは違います。理由は〜」のように伝えられます。</p>
 <p>新しい話題には<strong>新しいチャット</strong>を始めましょう。いろいろな話題が混ざった長いチャットは、回答の質が下がります。</p>
 
@@ -72,10 +75,14 @@
 <h2>5. ファイルと画像</h2>
 <p>PDF、Word、Excel、CSV、スクリーンショットをチャットにドラッグして、内容について質問できます：</p>
 <pre>この契約書を箇条書き 5 つで要約し、普通と違う点を挙げてください。</pre>
+<figure><img src="../img/add-files.png" alt="+ メニューの Upload or add files" loading="lazy"><figcaption>メニューからも追加できます：<ol><li>チャット欄の下の <strong>+</strong> をクリック。</li><li><strong>Upload or add files</strong> をクリックしてファイルを選ぶ。</li></ol></figcaption></figure>
 <p>アップロードする前に、<a href="security.html">セキュリティのルール</a>を守っているか確認してください。</p>
 
 <h2>6. プロジェクト</h2>
 <p>プロジェクトは、同じ仕事に関するチャットをまとめるフォルダです。ファイルと指示を一度登録すれば、そのプロジェクト内のすべてのチャットで使えます。チームのスタイルガイド、商品情報、毎週使うテンプレートなどに便利です。</p>
+<figure><img src="../img/projects-new.png" alt="プロジェクト画面の New project ボタン" loading="lazy"><figcaption>プロジェクトの作り方：<ol><li>左のメニューで <strong>Projects</strong> を開き、<strong>New project</strong> をクリック。</li></ol></figcaption></figure>
+<figure><img src="../img/project-create.png" alt="プロジェクト作成フォーム" loading="lazy"><figcaption><ol start="2"><li>プロジェクトの名前を入力。</li><li>何のためのプロジェクトかを書く（目的、チーム、背景）。</li><li><strong>Create project</strong> をクリック。</li></ol></figcaption></figure>
+<figure><img src="../img/project-context.png" alt="プロジェクト画面の Context" loading="lazy"><figcaption><ol start="5"><li><strong>Context</strong> を開き、プロジェクト内のすべてのチャットで使うファイルを追加。</li></ol></figcaption></figure>
 <p>プロジェクトの指示の例：</p>
 <pre>あなたはクリエイティブチームの商品コピー作成を手伝います。
 常に温かくシンプルな文体で書いてください。日本語を先に、次に英語。
@@ -88,17 +95,20 @@
 <p>Claude はチャットの中から、あなたの職種やチーム、好みの回答の書き方など、役に立つ情報を覚えておけます。直接伝えることもできます：</p>
 <pre>私は京都支社で働いていて、お客様には日本語と英語でメールを書いていることを覚えておいてください。</pre>
 <ul>
-  <li>Claude が覚えている内容は、<strong>設定</strong>からいつでも確認・編集・削除できます。</li>
+  <li>Claude が覚えている内容は、<strong>設定 → Your Claude → Memory</strong> からいつでも確認・編集・削除できます。</li>
   <li>覚えさせるのは仕事の情報だけにしましょう。<strong>パスワード、お客様の情報、個人的な情報は絶対に覚えさせないでください。</strong></li>
   <li>古い情報や間違った情報が使われたら、こう伝えましょう：<code>それは忘れてください。今は〜です。</code></li>
 </ul>
+<figure><img src="../img/memory-settings.png" alt="設定の Your Claude にあるメモリーの項目" loading="lazy"><figcaption><ol><li><strong>設定 → Your Claude</strong> を開く。</li><li>メモリーのスイッチ：チャットの内容を Claude が覚えます。</li><li><strong>Manage</strong>：覚えている内容を確認・編集・削除。</li><li><strong>Start import</strong>：他の AI からメモリーを引き継ぐ（2 を参照）。</li></ol></figcaption></figure>
 
 <h3>指示（.md ファイル）：いつも守ってほしいルール</h3>
 <p>指示とは、一度書けば Claude が毎回守るルールです。<strong>.md</strong> ファイル（Markdown）として保存されているのをよく見かけます。簡単な見出しが付いただけのテキストファイルで、Claude はとても読みやすい形式です。</p>
 <ul>
-  <li><strong>自分用：</strong>設定のプロフィール。好みの回答の仕方（言語、長さ、トーン）を書きます。</li>
+  <li><strong>自分用：</strong><strong>設定 → Your Claude → Instructions</strong>。好みの回答の仕方（言語、長さ、トーン）を書きます。</li>
   <li><strong>チームや作業用：</strong>プロジェクトの指示（6 を参照）、またはプロジェクトに追加した .md ファイル。</li>
 </ul>
+<figure><img src="../img/instructions.png" alt="設定の Your Claude にある Instructions 欄" loading="lazy"><figcaption><ol><li><strong>設定 → Your Claude</strong> を開く。</li><li><strong>Instructions</strong> に自分用のルールを書く。</li></ol></figcaption></figure>
+<figure><img src="../img/project-md.png" alt="プロジェクトに追加した .md ファイル" loading="lazy"><figcaption>プロジェクトに追加した .md ファイル（「MD」がファイルの種類です）。</figcaption></figure>
 <p>チーム用の .md ファイルの例：</p>
 <pre># カスタマーサポートの書き方
 - 日本語を先に、次に英語。
@@ -110,10 +120,11 @@
 <h3>スキル：すぐに使えるノウハウ</h3>
 <p>スキルとは、1 種類の作業のための指示（とテンプレートなど）をまとめて保存したものです。スライド作成、会社の形式での月次レポート作成、契約書のチェックなどがあります。依頼内容が合うと、Claude が自分でスキルを使います。</p>
 <ul>
-  <li><strong>設定の機能（Capabilities）</strong>から確認できます。最初から入っているスキルもあります（Word、Excel、PowerPoint ファイルなど）。</li>
+  <li><strong>設定 → Customize → Skills</strong> から確認できます。最初から入っているスキルもあります（Word、Excel、PowerPoint ファイルなど）。</li>
   <li>スキルの中身は <strong>SKILL.md</strong> ファイルが入ったフォルダです。名前、使う場面、手順が書かれています。</li>
   <li><strong>スキルは会社またはエンジニアチームが用意したものだけを追加してください。</strong>インターネット上のスキルは、安全でないコネクタと同じように、頼んでいないことを Claude にさせる場合があります。</li>
 </ul>
+<figure><img src="../img/skills.png" alt="設定の Customize にある Skills" loading="lazy"><figcaption><ol><li><strong>設定 → Customize</strong> を開く。</li><li><strong>Skills</strong> をクリックすると、自分のスキルとスキル一覧が見られます。</li><li><strong>Add</strong>：会社またはエンジニアチームのスキルだけに使う。</li></ol></figcaption></figure>
 <p>毎週同じ作業をしていますか？Claude にこう伝えましょう：</p>
 <pre>このレポートを毎週月曜日に書いています。いつものやり方をスキルにするのを手伝ってください。</pre>
 
@@ -122,6 +133,7 @@
 
 <h2>9. コネクタ</h2>
 <p>コネクタを使うと、Claude が Google ドライブ、Gmail、Slack などの他のツールを読んだり操作したりできます。便利ですが、リスクも増えます。会社が許可したコネクタだけを使い、「許可」を押す前に Claude が何をしようとしているか必ず確認してください。詳しくは<a href="security.html#agency">過剰な権限</a>を参照。</p>
+<figure><img src="../img/connectors.png" alt="設定の Customize にある Connectors" loading="lazy"><figcaption><ol><li><strong>設定 → Customize</strong> を開く。</li><li><strong>Connectors</strong> をクリックすると、つながっているツールが見られます。</li><li><strong>Connect</strong>：会社が許可したコネクタだけに使う。</li></ol></figcaption></figure>
 
 <h2>練習</h2>
 <ol>
