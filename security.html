@@ -18,17 +18,18 @@
 </nav></header>
 <main>
 <h1>Using AI safely at work</h1>
-<p class="lead">Claude can help with everyday work. These habits can help protect your account, your information, and the people you work with. They apply to other AI tools too.</p>
+<p class="lead">Claude can help with real work, including work involving customer or employee information. These habits help you use it with care. They apply to other AI tools too.</p>
 
-<div class="card">
-  <p><strong>The short version</strong></p>
+<section class="card security-essentials" aria-labelledby="essentials-title">
+  <h2 id="essentials-title">If you read one thing, read this</h2>
   <ul>
-    <li>Protect the account and email you use to sign in.</li>
-    <li>Think before you share information or connect another service.</li>
-    <li>Check answers and actions before you use them.</li>
-    <li>If something goes wrong, stop and tell the engineering team.</li>
+    <li><strong>Protect your account and device.</strong> Use a passkey or two-step verification for Claude and the account you use to sign in. Keep your device updated, and install software from a source you trust.</li>
+    <li><strong>Share only what the task needs.</strong> Use your Taimatsu work account and leave out unrelated information. Limit access to shared chats and files to the people who need them. Keep passwords, sign-in codes, API keys, and full payment card details out of ordinary chats.</li>
+    <li><strong>Limit connections and check actions.</strong> Before connecting another service, check who provides it and allow only the access needed. Review actions before approving them. Some connections can act without asking every time, so check what you’ve allowed.</li>
+    <li><strong>Review important answers.</strong> Claude can be wrong. Check facts and have a knowledgeable person review work affecting people, money, legal matters, or safety.</li>
+    <li><strong>Speak up if something goes wrong.</strong> Stop and tell the engineering team promptly if you suspect an account was accessed, information was shared unexpectedly, or you installed something suspicious.</li>
   </ul>
-</div>
+</section>
 
 <nav class="page-contents" aria-label="On this page">
   <p><strong>On this page</strong></p>
@@ -44,51 +45,67 @@
 </nav>
 
 <h2 id="account">Protect the account you use to sign in</h2>
-<p>Your Claude account may contain work conversations and company information. Protect it and the email account you use to sign in.</p>
+<p>Your Claude account can contain work conversations and information. Protect it, the email account you use to sign in, and the device you use to access them.</p>
 <ul>
-  <li><strong>Turn on two-step verification.</strong> This adds a second check when you sign in with your password. An app such as <a href="https://support.microsoft.com/en-us/authenticator/download-microsoft-authenticator">Microsoft Authenticator</a>, <a href="https://support.google.com/accounts/answer/1066447">Google Authenticator</a>, or <a href="https://help.twilio.com/articles/19753637085467-Downloading-and-Installing-Authy-Apps">Authy</a> can give you a temporary code to enter.</li>
-  <li><strong>Consider using a passkey.</strong> A passkey lets you sign in using your fingerprint, face, or device screen lock instead of typing a password.</li>
-  <li><strong>Plan for a lost phone.</strong> Your account may offer <em>recovery codes</em> when you set up two-step verification. These special codes help you sign in if you lose your phone. Save them somewhere secure you can reach without your phone, such as a locked drawer, or set up another way to sign in.</li>
-  <li><strong>Check sign-in notifications.</strong> If your phone asks you to approve a sign-in, approve it only when you are signing in yourself. Never share a temporary sign-in code. Tell the engineering team if you receive an unexpected sign-in notification.</li>
+  <li><strong>Use a passkey where available.</strong> A passkey lets you sign in with your fingerprint, face, or device screen lock instead of typing a password. It can help protect you from fake sign-in pages.</li>
+  <li><strong>Turn on two-step verification.</strong> This adds a second check when you sign in with a password. An app such as <a href="https://support.microsoft.com/en-us/authenticator/download-microsoft-authenticator">Microsoft Authenticator</a>, <a href="https://support.google.com/accounts/answer/1066447">Google Authenticator</a>, or <a href="https://help.twilio.com/articles/19753637085467-Downloading-and-Installing-Authy-Apps">Authy</a> can give you a temporary code to enter.</li>
+  <li><strong>Plan for a lost phone.</strong> When you set up two-step verification, you may be offered <em>recovery codes</em>—special codes you can use to sign in if you lose your phone. Save them somewhere secure that you can reach without your phone, such as a locked drawer, or set up another way to sign in.</li>
+  <li><strong>Check sign-in notifications.</strong> If your phone asks you to approve a sign-in, approve it only when you are signing in yourself. Never share a temporary sign-in code. Tell the engineering team about unexpected sign-in notifications.</li>
 </ul>
-<p>Use a strong, different password for each account; a password manager can create and remember them for you. Open <a href="https://claude.ai/">claude.ai</a> yourself instead of using an unexpected sign-in link. If you have a Taimatsu Claude account, check that you are in the Taimatsu organization before sharing work information.</p>
+<p>Use a strong, different password for each account. A password manager is an app that can create and remember passwords for you. Open <a href="https://claude.ai/">claude.ai</a> yourself instead of following an unexpected sign-in link.</p>
+<p><strong>Protect your device, too.</strong> Keep its software updated and lock it when you step away. Download apps from the provider’s official website or an official app store; check the address and publisher. A search result or familiar logo alone isn’t proof. Use a personal device for personal activities, especially when downloading software or running files. On your work device, pause and check before installing or running anything unexpected, even if it appears to be for work.</p>
 
 <h2 id="sensitive">Think before sharing information</h2>
-<p>Anything you type or upload is shared with the AI service. Check the whole file, including extra spreadsheet sheets, comments, or background details in a screenshot.</p>
-<div class="card bad"><p><strong>Keep secrets out of AI chats and uploads.</strong> This includes passwords, sign-in and recovery codes, and API keys or access tokens—special codes that let software use a service. Don’t ask Claude to remember them.</p></div>
-<p>Take care with personal details, payment information, and confidential customer or company information. Share only what the task needs: use a made-up example or remove identifying details. A name isn’t the only detail that can identify someone; an address or order number might too. If you need to use real sensitive information, talk with the engineering team about a safe way to proceed.</p>
-<p id="data"><strong>Storing information and training an AI are different.</strong> A service may store a conversation even if it doesn’t use it to train its AI. Anthropic says it does not use commercial Claude conversations for training by default, though feedback or choosing to allow data use can change this. Storage and deletion depend on the account and its settings. <a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training">Read Anthropic’s explanation</a>.</p>
-<p id="hidden">Before sharing a conversation, file, or Claude Project—a space that can hold chats, instructions, and files—check what it contains and who can open it. Keep secrets out of Project instructions and files too.</p>
+<p>Claude can help with tasks involving real customer, employee, or financial information. Use your Taimatsu work account, and give Claude the information needed for your work.</p>
+
+<h3 id="data">Share only what the task needs</h3>
+<p>Include real details when they are needed; you don’t have to replace every name with a made-up one. Leave out unrelated information. For example, check for extra spreadsheet sheets, comments, or details in the background of a screenshot.</p>
+<p><strong>Why does this matter?</strong> If someone gets into your Claude account, they may be able to see its conversations and files. Leaving out unrelated information means less may be exposed. Limiting access to shared files and connected services can also reduce what someone could reach.</p>
+<p>For a new, sensitive workflow—such as handling payroll records—work with the people responsible for that work and the engineering team to agree on a safe setup. Once the workflow is established, you shouldn’t need to ask about every record.</p>
+
+<div class="card bad"><p><strong>Keep secrets and payment card details out of ordinary chats and uploads.</strong> This includes passwords, sign-in and recovery codes, API keys and access tokens (special codes that let software use a service), full card numbers, and card security codes. Use the payment system for card details. Don’t ask Claude to remember secrets.</p></div>
+
+<h3 id="hidden">Share with the right people</h3>
+<p>Give access to chats and files only to the people who need it. Your chats aren’t automatically visible to coworkers, but you can share them. A Claude Project can hold shared files and instructions, so check its members and contents before sharing.</p>
+<p>Work-account data may also be available to the organization’s Primary Owner through an export. <a href="https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing">Learn about Project sharing</a> · <a href="https://support.claude.com/en/articles/13346720-export-your-organization-s-data">Learn about organization data exports</a>.</p>
 
 <h2 id="agency">Connecting email, files, and other tools</h2>
 <p>A <strong>connector</strong> lets Claude work with another service, such as Gmail or Google Drive. Depending on the access you allow, it may be able to read, change, or send information.</p>
-<p><strong>MCP</strong> is one way AI tools and other software communicate. An <strong>MCP server</strong> is software that makes information and actions available through a connection. Claude can connect to one using a <strong>custom connector</strong>, including software from a person or company outside Claude’s connector directory. <a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp">Learn more from Anthropic</a>.</p>
+<p><strong>MCP</strong> is one way AI tools and other software communicate. An <strong>MCP server</strong> is software that makes information and actions available through a connection. A <strong>custom connector</strong> can connect Claude to an MCP server, including one provided by a person or company outside Claude’s connector directory. <a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp">Learn more from Anthropic</a>.</p>
 <ul>
-  <li><strong>Check who provides it.</strong> Before connecting, make sure you trust the provider and obtained the connector or MCP server address from a trustworthy source, such as the service’s official website. Compare the name, provider, and address; a familiar logo alone isn’t proof. If you can’t verify it, leave it disconnected while you find out more.</li>
-  <li><strong>Check what access it requests.</strong> Give it only the access needed for your task. For example, finding files may not require permission to change or delete them. Some connections may act without asking every time, so check what you allow.</li>
-  <li><strong>Review actions.</strong> Before approving an action, check what will happen and where—for example, an email’s contents and recipients. Avoid “always allow” for actions such as sending or deleting.</li>
-  <li><strong>Disconnect connections you no longer need.</strong> Also disconnect a connection if it behaves unexpectedly. You may need to remove its access in the other service’s account settings.</li>
+  <li><strong>Check the provider.</strong> Trust the person or company providing the connector or MCP server, and get its address from a trustworthy source such as the service’s official website. Compare the name, provider, and address; a familiar logo isn’t proof. If you can’t verify it, wait before connecting.</li>
+  <li><strong>Check the access requested.</strong> Allow only what the task needs. A tool that finds files may not need to change or delete them. Some connections can act without asking each time, so check what you allow.</li>
+  <li><strong>Review actions.</strong> Before approving an action, check what will happen and where—for example, an email’s contents and recipients. Avoid “always allow” for sending, deleting, or other consequential actions.</li>
+  <li><strong>Disconnect connections you no longer need.</strong> Disconnect one that behaves unexpectedly, too. You may also need to remove its access in the other service’s account settings.</li>
 </ul>
-<p>A harmful or compromised connector can contain hidden instructions that try to make Claude do something you didn’t intend. This is known as <em>tool poisoning</em>. Checking the provider and limiting access reduce this risk, but cannot guarantee safety.</p>
+<p>A harmful or compromised connector can include hidden instructions that try to make Claude do something you didn’t expect. This is called <em>tool poisoning</em>. Checking the provider and limiting access reduce risk but cannot guarantee safety.</p>
+<figure>
+  <img src="img/connector-search-example-en.svg" alt="A fictional lookalike email connector in search results, followed by an example of a hidden instruction inside it." loading="lazy">
+  <figcaption><strong>Illustrated example:</strong> A search result could lead to a lookalike connector that offers to search email. The box shows a hidden instruction that tries to make Claude send an employee list elsewhere.</figcaption>
+</figure>
 
 <h2 id="injection">When Claude reads emails and files</h2>
-<p>Someone can embed instructions aimed at Claude in an email, web page, image, or document. For example, a document you attach to give Claude context could contain instructions telling it to find a private spreadsheet and send it somewhere else. If Claude has access to your files and a way to send information, those instructions could try to make it do something you never asked for. This is known as <em>prompt injection</em>.</p>
-<p>These instructions can be hidden, so you may not be able to see them yourself. If Claude proposes something unrelated to your request, check the action and the information involved before allowing it. If it doesn’t make sense, don’t approve it. If information has already been accessed or sent unexpectedly, stop and follow the steps in <a href="#help">If something goes wrong</a>.</p>
-<p>Be particularly careful when an AI tool can both read outside material and act in your email, files, or other accounts. Limiting its access and checking actions can reduce the harm if it follows a misleading instruction.</p>
+<p>An email, document, image, or web page can contain instructions aimed at Claude. For example, a document you attach to give Claude context could contain hidden instructions telling it to find a private spreadsheet and send it elsewhere. This is called <em>prompt injection</em>.</p>
+
+<p>Instructions can be hidden by formatting or look like ordinary text; you may not notice them yourself. An instruction doesn’t automatically succeed: Claude would need both access to the file and a way to send it. If Claude proposes an action unrelated to your request, check the action and don’t approve it if it doesn’t make sense. If information has already been accessed or sent unexpectedly, follow <a href="#help">If something goes wrong</a>.</p>
+
+<figure>
+  <img src="img/prompt-injection-example-en.svg" alt="Illustration of a customer email with a separate box revealing an instruction hidden in the message." loading="lazy">
+  <figcaption><strong>Illustrated example:</strong> An email can use white text on a white background to hide instructions from the person reading it. The text is still part of the email, and depending on how the email is processed, Claude might receive it. The box shows the hidden instruction in a visible color.</figcaption>
+</figure>
 
 <h2 id="misinformation">Check what AI gives you</h2>
-<p>Claude can produce an answer that sounds confident but contains mistakes. It can also give you a source or link that is wrong or doesn’t exist. Treat its answer as a starting point and check the parts you plan to use.</p>
+<p>Claude can sound confident and still be wrong. It can also give you a source or link that doesn’t exist. Treat its answer as a starting point and check what you plan to use.</p>
 <ul>
-  <li><strong>Check facts and sources.</strong> Find the original source on a trusted website and make sure it says what the answer claims. Check names, dates, numbers, and quotations.</li>
-  <li><strong>Check links and downloads.</strong> Look at the address before opening a link. For important information, find the trusted website yourself instead of relying only on an AI-generated link.</li>
-  <li><strong>Check before sharing.</strong> Read the final text, confirm the recipients and attachments, and remove any private information that shouldn’t be included.</li>
-  <li><strong>Keep a person involved.</strong> For decisions affecting people, money, legal matters, or safety, have a knowledgeable person review the information and make the decision.</li>
+  <li><strong>Check facts and sources.</strong> Find the original source on a trusted website. Check important names, dates, numbers, and quotations, and look at links before opening them.</li>
+  <li><strong>Review before sharing.</strong> Read the final text, check recipients and attachments, and remove information that shouldn’t be shared.</li>
+  <li><strong>Keep a person involved.</strong> Have a knowledgeable person review work affecting people, money, legal matters, or safety before a decision or action.</li>
 </ul>
 <h3 id="output">Code, formulas, and other instructions</h3>
-<p>Before running a command or program that Claude suggests, make sure you understand what it will do. If you don’t, leave it until you can review it with someone who does. Check spreadsheet formulas and try them on a copy before using them in a working file. Review AI-written text before publishing or sending it.</p>
+<p>Before running a command or program Claude suggests, understand what it will do. If you don’t, wait until you can check with someone who does. Check spreadsheet formulas and try them on a copy before using them in a working file.</p>
 
 <h2 id="help">If something goes wrong</h2>
-<p>If you share private information in the wrong place, notice an unexpected action, or think someone has accessed your account, <strong>stop and tell the engineering team promptly</strong>. You don’t need to know exactly what happened.</p>
+<p>If you notice an unexpected action, think an account was accessed, installed something suspicious, or shared information in the wrong place, <strong>stop and tell the engineering team promptly</strong>. You don’t need to know exactly what happened or worry about explaining it perfectly.</p>
 <p>Share the tool and account involved, roughly when it happened, what information or action may be affected, and what you have done. Don’t include passwords, recovery codes, or temporary sign-in codes.</p>
 
 <h2 id="further-reading">Further reading</h2>
@@ -97,7 +114,7 @@
   <li><a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training">Anthropic: Is my data used for model training?</a></li>
   <li><a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organizations-data">Anthropic: How long is my organization’s data stored?</a></li>
   <li><a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp">Anthropic: Custom connectors and MCP</a>.</li>
-  <li><a href="https://www.cisa.gov/topics/cybersecurity-best-practices">CISA: Cybersecurity best practices</a> — general advice for staying safer online.</li>
+  <li><a href="https://www.anthropic.com/research/prompt-injection-defenses">Anthropic: Prompt injection defenses</a>.</li>
 </ul>
 </main>
 <footer>Take your time, check what you’re sharing, and review before acting.</footer>
