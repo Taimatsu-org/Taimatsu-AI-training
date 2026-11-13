@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>チャットの先へ · Taimatsu AI トレーニング</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><nav>
+  <a class="brand" href="index.html">Taimatsu AI トレーニング</a>
+  <a href="index.html">ホーム</a>
+  <a href="start.html">はじめに</a>
+  <a href="beyond.html" aria-current="page">チャットの先へ</a>
+  <a href="security.html">セキュリティ</a>
+  <a href="cheatsheet.html">チートシート</a>
+  <a href="departments.html">部署別</a>
+  <a class="lang" href="../beyond.html">English</a>
+</nav></header>
+<main>
+<h1>チャットの先へ</h1>
+<p class="lead">Claude は質問に答えるだけではありません。会社のツールとつなげば、仕事そのものを進められます。（10 分）</p>
+
+<p>多くの人は Claude を検索窓のように使います。質問して、答えを読んで、どこかにコピーする。これは最初の一歩にすぎません。このページでは、その先の 2 つのステップを社内の実例と一緒に紹介します。</p>
+
+<h2>Claude の 3 つの使い方</h2>
+
+<div class="steps">
+  <div class="card step">
+    <span class="tag">ステップ 1</span>
+    <h3>チャット</h3>
+    <div class="flow"><span>あなた</span><i>質問</i><span>Claude</span><i>回答</i><span>自分でコピー</span></div>
+    <p>あなたが聞き、Claude が答えます。必要な情報はあなたが貼り付け、答えもあなたが使う場所へ持っていきます。</p>
+    <p class="eg">「このお客様メールへの返信を書いて」</p>
+  </div>
+  <div class="card step">
+    <span class="tag">ステップ 2</span>
+    <h3>チャット＋コネクタ</h3>
+    <div class="flow"><span>あなた</span><i>質問</i><span>Claude</span><i>読む</i><span>Shopify、Notion、Drive</span></div>
+    <p>コネクタを使うと、Claude が普段使っているツールの中を見られます。Claude が実際のデータを自分で読むので、コピー＆ペーストが要らなくなります。</p>
+    <p class="eg">「今週の注文を見て、在庫が少なくなっている商品を教えて」</p>
+  </div>
+  <div class="card step">
+    <span class="tag">ステップ 3</span>
+    <h3>Claude Code</h3>
+    <div class="flow"><span>あなた</span><i>一度頼む</i><span>Claude Code</span><i>全部の手順を実行</i><span>あなたが確認</span></div>
+    <p>Claude Code は「手を持った Claude」です。読むだけでなく、複数のツールをまたいで作業を最初から最後まで行い、何をしたかを見せてくれます。あなたは承認と確認をします。</p>
+    <p class="eg">「このリストの一人ひとりに割引コードを作って、レジで使えることも確認して」</p>
+  </div>
+</div>
+
+<p>ひとことで言うと、チャットでは Claude に手伝ってもらいながら<strong>あなた</strong>が作業します。Claude Code では、あなたの承認のもとで <strong>Claude</strong> が作業します。</p>
+
+<h2>実例：スタッフ別の割引コード</h2>
+<p>店舗チーム全員が同じクーポンコードを使っていたため、誰の接客で売れたのか分かりませんでした。それが 1 回の依頼で解決しました。</p>
+
+<figure class="demo" id="demo" aria-label="アニメーションによる再現：左に Claude Code への依頼、右に Shopify に作られる割引コード">
+  <div class="demo-bar"><span>再現デモ</span><button type="button" id="demo-replay">もう一度見る</button></div>
+  <div class="demo-panes">
+    <div class="demo-pane">
+      <div class="demo-title">Claude Code</div>
+      <div class="demo-chat" id="demo-chat"></div>
+    </div>
+    <div class="demo-pane">
+      <div class="demo-title">Shopify · ディスカウント</div>
+      <table class="demo-table">
+        <thead><tr><th>コード</th><th>割引</th><th>レジ</th></tr></thead>
+        <tbody id="demo-rows"></tbody>
+      </table>
+      <div class="demo-empty" id="demo-empty">スタッフ別コードはまだありません</div>
+    </div>
+  </div>
+  <figcaption>仮の名前を使った再現です。実際の作業は約 10 分でした。</figcaption>
+</figure>
+<script>
+(function () {
+  var chat = document.getElementById('demo-chat'), rows = document.getElementById('demo-rows'),
+      empty = document.getElementById('demo-empty'), fig = document.getElementById('demo'),
+      btn = document.getElementById('demo-replay');
+  var codes = ['STORE-AKI', 'STORE-BEN', 'STORE-CHLOE', 'STORE-DAN', 'STORE-EMI', 'STORE-FINN'];
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var run = 0, started = false;
+  function wait(ms, id) { return new Promise(function (ok) { setTimeout(function () { if (id === run) ok(); }, still ? 0 : ms); }); }
+  function bubble(who) {
+    var d = document.createElement('div'); d.className = 'demo-msg ' + who;
+    var l = document.createElement('b'); l.textContent = who === 'you' ? 'あなた' : 'Claude';
+    var t = document.createElement('span'); d.appendChild(l); d.appendChild(t);
+    chat.appendChild(d); chat.scrollTop = chat.scrollHeight; return t;
+  }
+  async function say(who, text, id) {
+    var t = bubble(who);
+    if (who === 'you' && !still) {
+      for (var i = 1; i <= text.length; i++) { if (id !== run) return; t.textContent = text.slice(0, i); await wait(60, id); }
+    } else { t.textContent = text; }
+    chat.scrollTop = chat.scrollHeight;
+  }
+  function addRow(code) {
+    empty.hidden = true;
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td><code></code></td><td>20% オフ</td><td class="reg on">オン</td>';
+    tr.querySelector('code').textContent = code; rows.appendChild(tr);
+  }
+  async function play() {
+    var id = ++run; chat.textContent = ''; rows.textContent = ''; empty.hidden = false;
+    await wait(500, id);
+    await say('you', '店舗チームの一人ひとりに、20% オフのコードを作って。', id);
+    await wait(800, id);
+    await say('claude', 'プラン：1 人 1 つ、合計 6 つのコードを作ります。進めてよいですか？', id);
+    await wait(1300, id);
+    await say('you', 'お願い', id);
+    for (var i = 0; i < codes.length; i++) { await wait(450, id); addRow(codes[i]); }
+    await wait(700, id);
+    await say('claude', '完了しました。6 つのコードを作成し、レジで使える状態です。', id);
+  }
+  btn.addEventListener('click', play);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es, ob) { if (es[0].isIntersecting && !started) { started = true; ob.disconnect(); play(); } }, { threshold: 0.4 }).observe(fig);
+  } else { play(); }
+})();
+</script>
+
+
+<h2>4 つのレベル</h2>
+<p>Taimatsu では全員がレベル 1 から始めます。レベル 4 を一人で目指す必要はありません。</p>
+
+<table class="levels">
+  <tr><th>レベル</th><th>すること</th><th>例</th><th>対象</th></tr>
+  <tr>
+    <td><span class="lv">1</span> チャット</td>
+    <td>聞く、読む、確認する、使う。</td>
+    <td>メールの下書き、文書の要約、翻訳。</td>
+    <td>全員</td>
+  </tr>
+  <tr>
+    <td><span class="lv">2</span> 一度だけ設定</td>
+    <td>プロジェクト、指示、スキルを使い、同じ説明を繰り返さない。</td>
+    <td>チームの文体やテンプレートを知っているプロジェクト。</td>
+    <td>全員</td>
+  </tr>
+  <tr>
+    <td><span class="lv">3</span> つなぐ</td>
+    <td>コネクタで、普段使うツールを Claude が読めるようにする。</td>
+    <td>「先月の京都店についての議事録を探して」</td>
+    <td>全員（<a href="security.html#agency">セキュリティ</a>を読んでから）</td>
+  </tr>
+  <tr>
+    <td><span class="lv">4</span> 自動化</td>
+    <td>繰り返しの作業をまるごと Claude Code に任せる。</td>
+    <td>上のスタッフ別割引コード。自動でできあがる週次レポート。</td>
+    <td>部署の AI ビルダーと一緒に作る</td>
+  </tr>
+</table>
+
+<p>レベル 1 から 3 は<a href="start.html">はじめに</a>で説明しています。いちばん時間を節約できるのはレベル 4 で、これはチームで取り組みます。作業を知っているのはあなた、ツールを知っているのは AI ビルダーです。</p>
+
+<h2>この作業は自動化に向いている？</h2>
+<p>次の 4 つすべてに「はい」と言える作業が向いています。</p>
+<ol class="checks">
+  <li><strong>繰り返している。</strong>毎日、毎週、または毎月。</li>
+  <li><strong>手順が毎回同じ。</strong>新しい同僚に手順書として書ける。</li>
+  <li><strong>会社のツールの中で行う。</strong>Shopify、Notion、Google ドライブ、スプレッドシート、メール、チャット。</li>
+  <li><strong>人が結果を確認できる。</strong>正しくできたかすぐに分かる。</li>
+</ol>
+<p>向いていないもの：一度きりの作業、人やお金に関する判断、間違えると元に戻せないもの。</p>
+
+<h2>そんな作業があれば、AI ビルダーに相談を</h2>
+<p>Claude Code をインストールしたり覚えたりする必要はありません。各部署に、こうした仕組みを作る AI ビルダーがいます。あなたの役割は、作業を分かりやすく伝えることです。次の 4 つを送ってください。</p>
+<pre>1. どんな作業ですか？
+   例：毎週月曜に、先週の店舗別売上をレポートに転記している。
+
+2. 頻度と、かかる時間は？
+   例：週 1 回、約 40 分。
+
+3. どのツールを使いますか？
+   例：Shopify、Excel、Chatwork。
+
+4. 完成形はどんなものですか？
+   例：店舗ごとの表を 1 つずつ、マネージャーのチャットに投稿。</pre>
+<p>自分の部署の AI ビルダーが分からないときは、エンジニアチームに聞いてください。</p>
+
+<h2>安全に使う</h2>
+<p>できることが増えるほど、注意も必要です。Claude Code とコネクタは実際のシステムを操作するので、いつもの習慣を守りましょう。進める前にプランを確認する、送信・削除・支払いに「常に許可」を選ばない、結果は自分で確かめる。最初のコネクタをつなぐ前に、<a href="security.html#agency">メールやファイルなどのサービスを接続するとき</a>を読んでください。</p>
+</main>
+<footer>質問はエンジニアチームまで。</footer>
+</body>
+</html>
