@@ -52,38 +52,7 @@
 <p>The difference in one line: in chat, <strong>you</strong> do the work with Claude's help. With Claude Code, <strong>Claude</strong> does the work with your approval.</p>
 
 <h2>A real example: staff discount codes</h2>
-<p>One of our own tasks, done with Claude Code.</p>
-
-<div class="grid">
-  <div class="card">
-    <h3>The problem</h3>
-    <p>Our stores hand out coupon cards for YOKAI perfumes. Everyone used the same code, so nobody could tell which staff member brought in which sale. The numbers in the managers' report kept coming out wrong.</p>
-  </div>
-  <div class="card">
-    <h3>The request</h3>
-    <p>One sentence: give every person on the store team their own 20% code, the same as the current coupon.</p>
-  </div>
-</div>
-
-<h3>What Claude Code did</h3>
-<ol>
-  <li><strong>Read the staff list</strong> from the team chat. Nobody retyped the names.</li>
-  <li><strong>Saved a backup</strong> of the existing discounts before changing anything.</li>
-  <li><strong>Showed the plan first</strong>: the list of codes and the settings. It waited for a "go".</li>
-  <li><strong>Created the codes</strong> in Shopify, one per person, copying the settings of the current coupon.</li>
-  <li><strong>Opened the Shopify admin and checked each code.</strong> It found that new codes do not work at the register by default, and switched that on for every one.</li>
-  <li><strong>Reported back</strong>: what was done, what was different from the plan, and what still needed a person.</li>
-</ol>
-
-<h3>What the person did</h3>
-<ol>
-  <li>Said "go" after reading the plan.</li>
-  <li>Tested one code at a real register before telling the team.</li>
-</ol>
-
-<div class="card good">
-  <p><strong>Result:</strong> about ten minutes from the request to working codes. From then on, Shopify counts the sales per person by itself. No more counting cards.</p>
-</div>
+<p>Our store team shared one coupon code, so nobody could tell who brought in which sale. We asked Claude Code, in one sentence, to give each person their own code.</p>
 
 <figure class="demo" id="demo" aria-label="Animated walkthrough: a request to Claude Code on the left, discount codes appearing in Shopify on the right">
   <div class="demo-bar"><span>Walkthrough</span><button type="button" id="demo-replay">Replay</button></div>
@@ -160,7 +129,7 @@
 })();
 </script>
 
-<p>Notice what did <em>not</em> change: a person decided what to do, approved the plan, and tested the result. Claude did the steps in between.</p>
+<p>About ten minutes, start to finish. A person approved the plan and tested the result. Claude did the steps in between.</p>
 
 <h2>The four levels</h2>
 <p>Everyone at Taimatsu starts at level 1. Nobody has to reach level 4 alone.</p>
