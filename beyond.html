@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beyond chat · Taimatsu AI Training</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><nav>
+  <a class="brand" href="index.html">Taimatsu AI Training</a>
+  <a href="index.html">Home</a>
+  <a href="start.html">Getting started</a>
+  <a href="beyond.html" aria-current="page">Beyond chat</a>
+  <a href="security.html">Security</a>
+  <a href="cheatsheet.html">Cheat sheet</a>
+  <a href="departments.html">Departments</a>
+  <a class="lang" href="ja/index.html">日本語</a>
+</nav></header>
+<main>
+<h1>Beyond chat</h1>
+<p class="lead">Claude does not only answer questions. Connected to our tools, it can do the work. (10 min)</p>
+
+<p>Most people use Claude like a search box: ask, read the answer, copy it somewhere. That is only the first step. This page shows the next two, with a real example from our company.</p>
+
+<h2>Three ways to work with Claude</h2>
+
+<div class="steps">
+  <div class="card step">
+    <span class="tag">Step 1</span>
+    <h3>Chat</h3>
+    <div class="flow"><span>You</span><i>ask</i><span>Claude</span><i>answers</i><span>You copy it</span></div>
+    <p>You ask, Claude answers. You paste in what it needs, and you carry the answer to where it belongs.</p>
+    <p class="eg">"Write a reply to this customer email."</p>
+  </div>
+  <div class="card step">
+    <span class="tag">Step 2</span>
+    <h3>Chat with connectors</h3>
+    <div class="flow"><span>You</span><i>ask</i><span>Claude</span><i>reads</i><span>Shopify, Notion, Drive</span></div>
+    <p>A connector lets Claude look inside the tools we already use. You stop copying and pasting, because Claude reads the real data itself.</p>
+    <p class="eg">"Look at this week's orders and tell me which products are running low."</p>
+  </div>
+  <div class="card step">
+    <span class="tag">Step 3</span>
+    <h3>Claude Code</h3>
+    <div class="flow"><span>You</span><i>ask once</i><span>Claude Code</span><i>does every step</i><span>You check</span></div>
+    <p>Claude Code is Claude with hands. It reads, then does the task from start to finish across several tools, and shows you what it did. You approve and check.</p>
+    <p class="eg">"Create a discount code for each person on this list, and make sure they work at the register."</p>
+  </div>
+</div>
+
+<p>The difference in one line: in chat, <strong>you</strong> do the work with Claude's help. With Claude Code, <strong>Claude</strong> does the work with your approval.</p>
+
+<h2>A real example: staff discount codes</h2>
+<p>One of our own tasks, done with Claude Code.</p>
+
+<div class="grid">
+  <div class="card">
+    <h3>The problem</h3>
+    <p>Our stores hand out coupon cards for YOKAI perfumes. Everyone used the same code, so nobody could tell which staff member brought in which sale. The numbers in the managers' report kept coming out wrong.</p>
+  </div>
+  <div class="card">
+    <h3>The request</h3>
+    <p>One sentence: give every person on the store team their own 20% code, the same as the current coupon.</p>
+  </div>
+</div>
+
+<h3>What Claude Code did</h3>
+<ol>
+  <li><strong>Read the staff list</strong> from the team chat. Nobody retyped the names.</li>
+  <li><strong>Saved a backup</strong> of the existing discounts before changing anything.</li>
+  <li><strong>Showed the plan first</strong>: the list of codes and the settings. It waited for a "go".</li>
+  <li><strong>Created the codes</strong> in Shopify, one per person, copying the settings of the current coupon.</li>
+  <li><strong>Opened the Shopify admin and checked each code.</strong> It found that new codes do not work at the register by default, and switched that on for every one.</li>
+  <li><strong>Reported back</strong>: what was done, what was different from the plan, and what still needed a person.</li>
+</ol>
+
+<h3>What the person did</h3>
+<ol>
+  <li>Said "go" after reading the plan.</li>
+  <li>Tested one code at a real register before telling the team.</li>
+</ol>
+
+<div class="card good">
+  <p><strong>Result:</strong> about ten minutes from the request to working codes. From then on, Shopify counts the sales per person by itself. No more counting cards.</p>
+</div>
+
+<figure class="demo" id="demo" aria-label="Animated walkthrough: a request to Claude Code on the left, discount codes appearing in Shopify on the right">
+  <div class="demo-bar"><span>Walkthrough</span><button type="button" id="demo-replay">Replay</button></div>
+  <div class="demo-panes">
+    <div class="demo-pane">
+      <div class="demo-title">Claude Code</div>
+      <div class="demo-chat" id="demo-chat"></div>
+    </div>
+    <div class="demo-pane">
+      <div class="demo-title">Shopify · Discounts</div>
+      <table class="demo-table">
+        <thead><tr><th>Code</th><th>Value</th><th>Register</th></tr></thead>
+        <tbody id="demo-rows"></tbody>
+      </table>
+      <div class="demo-empty" id="demo-empty">No staff codes yet</div>
+    </div>
+  </div>
+  <figcaption>A re-enactment of the real task, with example names. About 40 seconds.</figcaption>
+</figure>
+<script>
+(function () {
+  var chat = document.getElementById('demo-chat'), rows = document.getElementById('demo-rows'),
+      empty = document.getElementById('demo-empty'), fig = document.getElementById('demo'),
+      btn = document.getElementById('demo-replay');
+  var codes = ['STORE-AKI', 'STORE-BEN', 'STORE-CHLOE', 'STORE-DAN', 'STORE-EMI', 'STORE-FINN'];
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var run = 0, started = false;
+  function wait(ms, id) { return new Promise(function (ok) { setTimeout(function () { if (id === run) ok(); }, still ? 0 : ms); }); }
+  function bubble(who) {
+    var d = document.createElement('div'); d.className = 'demo-msg ' + who;
+    var l = document.createElement('b'); l.textContent = who === 'you' ? 'You' : 'Claude';
+    var t = document.createElement('span'); d.appendChild(l); d.appendChild(t);
+    chat.appendChild(d); chat.scrollTop = chat.scrollHeight; return t;
+  }
+  async function say(who, text, id) {
+    var t = bubble(who);
+    if (who === 'you' && !still) {
+      for (var i = 1; i <= text.length; i++) { if (id !== run) return; t.textContent = text.slice(0, i); await wait(28, id); }
+    } else { t.textContent = text; }
+    chat.scrollTop = chat.scrollHeight;
+  }
+  function addRow(code) {
+    empty.hidden = true;
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td><code></code></td><td>20% off</td><td class="reg off">Off</td>';
+    tr.querySelector('code').textContent = code; rows.appendChild(tr);
+  }
+  async function play() {
+    var id = ++run; chat.textContent = ''; rows.textContent = ''; empty.hidden = false;
+    await wait(600, id);
+    await say('you', 'Give each person on the store team their own 20% code, same as the current coupon.', id);
+    await wait(900, id);
+    await say('claude', 'Reading the staff list from the team chat. Found 6 people.', id);
+    await wait(1400, id);
+    await say('claude', 'Saved a backup of the current discounts.', id);
+    await wait(1400, id);
+    await say('claude', 'Plan: 6 codes, one per person, 20% off, no end date. Shall I go ahead?', id);
+    await wait(1800, id);
+    await say('you', 'Go', id);
+    await wait(900, id);
+    await say('claude', 'Creating the codes in Shopify.', id);
+    for (var i = 0; i < codes.length; i++) { await wait(650, id); addRow(codes[i]); }
+    await wait(1200, id);
+    await say('claude', 'Checking each code in the admin. New codes are switched off for the register by default. Switching it on.', id);
+    var cells = rows.querySelectorAll('.reg');
+    for (var j = 0; j < cells.length; j++) { await wait(650, id); cells[j].textContent = 'On'; cells[j].className = 'reg on'; }
+    await wait(1200, id);
+    await say('claude', 'Done. 6 codes are active and work at the register. Please test one before telling the team.', id);
+  }
+  btn.addEventListener('click', play);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es, ob) { if (es[0].isIntersecting && !started) { started = true; ob.disconnect(); play(); } }, { threshold: 0.4 }).observe(fig);
+  } else { play(); }
+})();
+</script>
+
+<p>Notice what did <em>not</em> change: a person decided what to do, approved the plan, and tested the result. Claude did the steps in between.</p>
+
+<h2>The four levels</h2>
+<p>Everyone at Taimatsu starts at level 1. Nobody has to reach level 4 alone.</p>
+
+<table class="levels">
+  <tr><th>Level</th><th>What you do</th><th>Example</th><th>Who</th></tr>
+  <tr>
+    <td><span class="lv">1</span> Chat</td>
+    <td>Ask, read, check, use.</td>
+    <td>Draft an email. Summarise a document. Translate.</td>
+    <td>Everyone</td>
+  </tr>
+  <tr>
+    <td><span class="lv">2</span> Set it up once</td>
+    <td>Use Projects, instructions and skills so you stop repeating yourself.</td>
+    <td>A Project that knows your team's style and templates.</td>
+    <td>Everyone</td>
+  </tr>
+  <tr>
+    <td><span class="lv">3</span> Connect</td>
+    <td>Let Claude read the tools you work in, with connectors.</td>
+    <td>"Find last month's meeting notes about the Kyoto store."</td>
+    <td>Everyone, after reading <a href="security.html#agency">Security</a></td>
+  </tr>
+  <tr>
+    <td><span class="lv">4</span> Automate</td>
+    <td>Hand a whole repeated task to Claude Code.</td>
+    <td>The staff discount codes above. A weekly report that builds itself.</td>
+    <td>Built with your division's AI builder</td>
+  </tr>
+</table>
+
+<p>Levels 1 to 3 are covered in <a href="start.html">Getting started</a>. Level 4 is where the biggest time savings are, and it is a team effort: you know the task, the AI builder knows the tool.</p>
+
+<h2>Is my task worth automating?</h2>
+<p>A task is a good fit when you can say yes to all four:</p>
+<ol class="checks">
+  <li><strong>I repeat it.</strong> Every day, week or month.</li>
+  <li><strong>The steps are the same each time.</strong> I could write them down for a new colleague.</li>
+  <li><strong>It lives in our tools.</strong> Shopify, Notion, Google Drive, spreadsheets, email, chat.</li>
+  <li><strong>A person can check the result.</strong> I can tell quickly if it came out right.</li>
+</ol>
+<p>Not a good fit: one-time work, decisions about people or money, and anything where a mistake cannot be undone.</p>
+
+<h2>Have a task like this? Bring it to your AI builder</h2>
+<p>You do not need to install Claude Code or learn it. Each division has an AI builder who sets these up. Your part is to describe the task well. Send them these four answers:</p>
+<pre>1. What is the task?
+   Example: every Monday I copy last week's sales per store into the report.
+
+2. How often, and how long does it take?
+   Example: weekly, about 40 minutes.
+
+3. Which tools does it touch?
+   Example: Shopify, Excel, Chatwork.
+
+4. What does the finished result look like?
+   Example: one table per store, posted in the managers' chat.</pre>
+<p>Not sure who your AI builder is? Ask the engineering team.</p>
+
+<h2>Stay safe</h2>
+<p>More power means more care. Claude Code and connectors act in real systems, so the same habits apply: check the plan before you say go, never click "always allow" for sending, deleting or paying, and test the result yourself. Read <a href="security.html#agency">Connecting email, files, and other tools</a> before your first connector.</p>
+</main>
+<footer>Questions? Ask the engineering team.</footer>
+</body>
+</html>
