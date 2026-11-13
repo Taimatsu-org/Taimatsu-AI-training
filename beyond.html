@@ -52,7 +52,7 @@
 <p>The difference in one line: in chat, <strong>you</strong> do the work with Claude's help. With Claude Code, <strong>Claude</strong> does the work with your approval.</p>
 
 <h2>A real example: staff discount codes</h2>
-<p>Our store team shared one coupon code, so nobody could tell who brought in which sale. We asked Claude Code, in one sentence, to give each person their own code.</p>
+<p>Our store team shared one coupon code, so nobody knew who brought in which sale. One request fixed it.</p>
 
 <figure class="demo" id="demo" aria-label="Animated walkthrough: a request to Claude Code on the left, discount codes appearing in Shopify on the right">
   <div class="demo-bar"><span>Walkthrough</span><button type="button" id="demo-replay">Replay</button></div>
@@ -70,7 +70,7 @@
       <div class="demo-empty" id="demo-empty">No staff codes yet</div>
     </div>
   </div>
-  <figcaption>A re-enactment of the real task, with example names. About 40 seconds.</figcaption>
+  <figcaption>A re-enactment with example names. The real task took about ten minutes.</figcaption>
 </figure>
 <script>
 (function () {
@@ -97,30 +97,20 @@
   function addRow(code) {
     empty.hidden = true;
     var tr = document.createElement('tr');
-    tr.innerHTML = '<td><code></code></td><td>20% off</td><td class="reg off">Off</td>';
+    tr.innerHTML = '<td><code></code></td><td>20% off</td><td class="reg on">On</td>';
     tr.querySelector('code').textContent = code; rows.appendChild(tr);
   }
   async function play() {
     var id = ++run; chat.textContent = ''; rows.textContent = ''; empty.hidden = false;
-    await wait(600, id);
-    await say('you', 'Give each person on the store team their own 20% code, same as the current coupon.', id);
-    await wait(900, id);
-    await say('claude', 'Reading the staff list from the team chat. Found 6 people.', id);
-    await wait(1400, id);
-    await say('claude', 'Saved a backup of the current discounts.', id);
-    await wait(1400, id);
-    await say('claude', 'Plan: 6 codes, one per person, 20% off, no end date. Shall I go ahead?', id);
-    await wait(1800, id);
+    await wait(500, id);
+    await say('you', 'Give each person on the store team their own 20% code.', id);
+    await wait(800, id);
+    await say('claude', 'Plan: 6 codes, one per person. Shall I go ahead?', id);
+    await wait(1300, id);
     await say('you', 'Go', id);
-    await wait(900, id);
-    await say('claude', 'Creating the codes in Shopify.', id);
-    for (var i = 0; i < codes.length; i++) { await wait(650, id); addRow(codes[i]); }
-    await wait(1200, id);
-    await say('claude', 'Checking each code in the admin. New codes are switched off for the register by default. Switching it on.', id);
-    var cells = rows.querySelectorAll('.reg');
-    for (var j = 0; j < cells.length; j++) { await wait(650, id); cells[j].textContent = 'On'; cells[j].className = 'reg on'; }
-    await wait(1200, id);
-    await say('claude', 'Done. 6 codes are active and work at the register. Please test one before telling the team.', id);
+    for (var i = 0; i < codes.length; i++) { await wait(450, id); addRow(codes[i]); }
+    await wait(700, id);
+    await say('claude', 'Done. 6 codes created and working at the register.', id);
   }
   btn.addEventListener('click', play);
   if ('IntersectionObserver' in window) {
@@ -129,7 +119,6 @@
 })();
 </script>
 
-<p>About ten minutes, start to finish. A person approved the plan and tested the result. Claude did the steps in between.</p>
 
 <h2>The four levels</h2>
 <p>Everyone at Taimatsu starts at level 1. Nobody has to reach level 4 alone.</p>

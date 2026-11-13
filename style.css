@@ -121,7 +121,7 @@ figcaption ol { margin: 4px 0 0; padding-left: 1.4em; }
 .demo-pane { padding: 12px; min-width: 0; }
 .demo-pane + .demo-pane { border-left: 1px solid var(--line); }
 .demo-title { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
-.demo-chat { height: 330px; overflow-y: auto; font-size: 0.9rem; line-height: 1.5; }
+.demo-chat { height: 215px; overflow-y: auto; font-size: 0.9rem; line-height: 1.5; }
 .demo-msg { margin: 0 0 10px; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); }
 .demo-msg b { display: block; font-size: 0.72rem; color: var(--muted); }
 .demo-msg.you { border-color: var(--accent); }
@@ -134,4 +134,4 @@ figcaption ol { margin: 4px 0 0; padding-left: 1.4em; }
 .demo-table .reg.on { color: var(--good); }
 .demo-empty { color: var(--muted); font-size: 0.9rem; padding: 24px 6px; }
 .demo figcaption { padding: 6px 12px 10px; border-top: 1px solid var(--line); margin: 0; }
-@media (max-width: 620px) { .demo-panes { grid-template-columns: 1fr; } .demo-pane + .demo-pane { border-left: 0; border-top: 1px solid var(--line); } .demo-chat { height: 260px; } }
+@media (max-width: 620px) { .demo-panes { grid-template-columns: 1fr; } .demo-pane + .demo-pane { border-left: 0; border-top: 1px solid var(--line); } .demo-chat { height: 200px; } }
