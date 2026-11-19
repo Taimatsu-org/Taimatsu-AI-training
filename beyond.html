@@ -119,6 +119,28 @@
 })();
 </script>
 
+<h2 id="examples">More examples from our company</h2>
+<p>Each one started as a task somebody was tired of repeating.</p>
+<div class="cases">
+  <div class="card">
+    <span class="tag">Stores</span>
+    <h3>Shift requests</h3>
+    <div class="flow"><span>Staff fill a form</span><i></i><span>One sheet</span><i></i><span>Calendar file</span></div>
+    <dl><dt>Before</dt><dd>Requests arrived in different chats and were collected by hand</dd><dt>Now</dt><dd>Everyone uses one form, and each person gets their shifts as a calendar file</dd><dt>Built by</dt><dd>A store manager, with a form and a sheet</dd></dl>
+  </div>
+  <div class="card">
+    <span class="tag">HR</span>
+    <h3>Recruiting tracker</h3>
+    <div class="flow"><span>Candidates and agencies</span><i></i><span>One app</span><i></i><span>HR sees the status</span></div>
+    <dl><dt>Before</dt><dd>Hiring steps and agency messages were tracked in separate places</dd><dt>Now</dt><dd>One place shows every candidate and every agency conversation</dd><dt>Built by</dt><dd>An engineer, together with HR</dd></dl>
+  </div>
+  <div class="card">
+    <span class="tag">Engineering</span>
+    <h3>Morning brief</h3>
+    <div class="flow"><span>10:00 every weekday</span><i></i><span>Claude reads the chats</span><i></i><span>Summary and reply drafts</span></div>
+    <dl><dt>Before</dt><dd>Reading every chat room to find what needs an answer</dd><dt>Now</dt><dd>One message with what is waiting and a draft for each reply. A person still sends every reply</dd><dt>Built by</dt><dd>The division manager, with Claude Code</dd></dl>
+  </div>
+</div>
 
 <h2>The four levels</h2>
 <p>Everyone at Taimatsu starts at level 1. Nobody has to reach level 4 alone.</p>
@@ -146,7 +168,7 @@
   <tr>
     <td><span class="lv">4</span> Automate</td>
     <td>Hand a whole repeated task to Claude Code.</td>
-    <td>The staff discount codes above. A weekly report that builds itself.</td>
+    <td>The staff discount codes and the <a href="#examples">examples</a> above.</td>
     <td>Built with your division's AI builder</td>
   </tr>
 </table>
@@ -164,7 +186,7 @@
 <p>Not a good fit: one-time work, decisions about people or money, and anything where a mistake cannot be undone.</p>
 
 <h2>Have a task like this? Bring it to your AI builder</h2>
-<p>You do not need to install Claude Code or learn it. Each division has an AI builder who sets these up. Your part is to describe the task well. Send them these four answers:</p>
+<p>You do not need to install Claude Code or learn it. Each division will have an AI builder who sets these up. Until yours is named, bring the task to the engineering team. Your part is to describe the task well. Send these five answers:</p>
 <pre>1. What is the task?
    Example: every Monday I copy last week's sales per store into the report.
 
@@ -175,8 +197,28 @@
    Example: Shopify, Excel, Chatwork.
 
 4. What does the finished result look like?
-   Example: one table per store, posted in the managers' chat.</pre>
-<p>Not sure who your AI builder is? Ask the engineering team.</p>
+   Example: one table per store, posted in the managers' chat.
+
+5. What information does it touch, and who checks the result?
+   Example: sales totals only, no customer names. The area manager checks it.</pre>
+<p>If the task touches customer, staff or financial records, read <a href="security.html#automation">Automating work with sensitive information</a> first.</p>
+
+<h2 id="shopify">AI that is already inside Shopify</h2>
+<p>Not everything needs Claude. Shopify has its own AI built in, and for anyone working on products or the online stores it is the shortest path to a result you can measure.</p>
+<div class="setup">
+  <div class="card"><span class="tag">In the admin</span><h3>Sidekick</h3><p>An assistant inside the Shopify admin. Ask it about orders, products and reports in normal language.</p></div>
+  <div class="card"><span class="tag">Product pages</span><h3>Shopify Magic</h3><p>Writing help for product descriptions and editing help for product images.</p></div>
+  <div class="card"><span class="tag">Customer questions</span><h3>Knowledge Base</h3><p>The answers about our policies and products that AI assistants give to shoppers.</p></div>
+  <div class="card"><span class="tag">Sales</span><h3>Agentic storefronts</h3><p>Our products can be found and bought inside AI chat assistants, not only on our site.</p></div>
+</div>
+<div class="path" role="img" aria-label="Diagram: clean product data and a filled knowledge base let AI assistants find and explain our products, which leads to sales you can count.">
+  <div class="node ok"><b>Your work</b>Clean product data, complete knowledge base</div>
+  <span class="arrow" aria-hidden="true"></span>
+  <div class="node ai"><b>AI assistants</b>Find and explain our products correctly</div>
+  <span class="arrow" aria-hidden="true"></span>
+  <div class="node human"><b>Result</b>Sales you can count</div>
+</div>
+<p>These features are only as good as what we give them. Missing sizes, wrong materials or an empty FAQ lead to wrong answers. Which features are switched on differs per store, so ask the engineering team before you start.</p>
 
 <h2>Stay safe</h2>
 <p>More power means more care. Claude Code and connectors act in real systems, so the same habits apply: check the plan before you say go, never click "always allow" for sending, deleting or paying, and test the result yourself. Read <a href="security.html#agency">Connecting email, files, and other tools</a> before your first connector.</p>

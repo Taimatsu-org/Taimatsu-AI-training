@@ -135,3 +135,47 @@ figcaption ol { margin: 4px 0 0; padding-left: 1.4em; }
 .demo-empty { color: var(--muted); font-size: 0.9rem; padding: 24px 6px; }
 .demo figcaption { padding: 6px 12px 10px; border-top: 1px solid var(--line); margin: 0; }
 @media (max-width: 620px) { .demo-panes { grid-template-columns: 1fr; } .demo-pane + .demo-pane { border-left: 0; border-top: 1px solid var(--line); } .demo-chat { height: 200px; } }
+
+/* Setups, examples and tools */
+.path { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; margin: 16px 0 8px; }
+.path .node { flex: 1 1 140px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); padding: 10px 12px; font-size: 0.92rem; line-height: 1.45; }
+.path .node b { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+.path .node.ok { border-left: 4px solid var(--good); }
+.path .node.ai { border-color: var(--accent); }
+.path .node.ai b { color: var(--accent); }
+.path .node.human { border-left: 4px solid var(--accent); }
+.path .arrow { flex: 0 0 auto; align-self: center; color: var(--muted); }
+.path .arrow::before { content: "\2192"; }
+.blocked { border: 2px dashed var(--bad); border-radius: 10px; padding: 8px 12px; font-size: 0.92rem; line-height: 1.5; margin: 0 0 20px; }
+.blocked b { color: var(--bad); }
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 16px 0; }
+.compare .card { margin: 0; padding: 14px 18px; }
+.compare h3 { margin: 0.3em 0; font-size: 1.05rem; }
+.compare p { margin: 0.4em 0; font-size: 0.95rem; }
+.setup, .cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin: 16px 0; }
+.setup .card, .cases .card { margin: 0; padding: 12px 16px; }
+.setup h3, .cases h3 { margin: 0.3em 0 0.2em; font-size: 1rem; }
+.setup p, .cases p { margin: 0.2em 0 0.4em; font-size: 0.94rem; line-height: 1.55; }
+.cases dl { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; font-size: 0.92rem; line-height: 1.5; margin: 0.5em 0 0.3em; }
+.cases dt { color: var(--muted); }
+.cases dd { margin: 0; }
+.cases .out dt, .cases .out { color: var(--bad); }
+.cases dd.out { color: var(--text); }
+.note { color: var(--muted); font-size: 0.92rem; }
+@media (max-width: 560px) { .path { flex-direction: column; } .path .node { flex: 0 0 auto; } .path .arrow::before { content: "\2193"; } }
+
+/* Security page: short cards first, detail folded away */
+.habits { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 12px; margin: 20px 0 8px; }
+.habits a { display: block; margin: 0; padding: 14px 14px 12px; color: var(--text); text-decoration: none; }
+.habits a:hover { border-color: var(--accent); }
+.habits b { display: block; margin: 8px 0 2px; line-height: 1.35; }
+.habits small { display: block; color: var(--muted); font-size: 0.86rem; line-height: 1.45; }
+.chips { margin: 6px 0 10px; }
+.chips span { display: inline-block; border: 1px solid var(--line); border-radius: 99px; padding: 0 10px; margin: 3px 4px 3px 0; font-size: 0.9rem; background: var(--bg); }
+.short { font-size: 1.02rem; }
+details.more { margin: 14px 0; border: 1px solid var(--line); border-radius: 8px; padding: 0 14px; background: var(--card); }
+details.more > summary { cursor: pointer; padding: 8px 0; color: var(--accent); font-size: 0.93rem; }
+details.more[open] > summary { border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+details.more h3 { font-size: 1rem; }
+details.more .cases, details.more .setup { margin-bottom: 14px; }
+details.more .card { background: var(--bg); }
