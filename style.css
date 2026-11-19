@@ -7,6 +7,7 @@
   --accent: #b5532f;
   --good: #2f7a4a;
   --bad: #b23a3a;
+  --warn: #a86a00;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -18,6 +19,7 @@
     --accent: #e2875f;
     --good: #6cc48d;
     --bad: #e77b7b;
+    --warn: #e0b050;
   }
 }
 
@@ -179,3 +181,7 @@ details.more[open] > summary { border-bottom: 1px solid var(--line); margin-bott
 details.more h3 { font-size: 1rem; }
 details.more .cases, details.more .setup { margin-bottom: 14px; }
 details.more .card { background: var(--bg); }
+.warn { border-left: 4px solid var(--warn); }
+.plan-note { border-left: 4px solid var(--accent); padding: 12px 18px; }
+.plan-note p { margin: 0; }
+.chips + small { display: block; color: var(--muted); font-size: 0.86rem; margin: -4px 0 10px; }
