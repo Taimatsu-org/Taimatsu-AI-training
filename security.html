@@ -19,14 +19,15 @@
 </nav></header>
 <main>
 <h1>Using AI safely at work</h1>
-<p class="lead">Five habits cover most of it. Each section below is short, with more detail if you want it.</p>
+<p class="lead">Six habits cover most of it. Each section below is short, with more detail if you want it.</p>
 
 <div class="habits">
   <a class="card" href="#account"><span class="lv">1</span><b>Lock your account</b><small>Turn on two-step verification.</small></a>
   <a class="card" href="#sensitive"><span class="lv">2</span><b>Share what the task needs</b><small>Never passwords, codes or card numbers.</small></a>
   <a class="card" href="#agency"><span class="lv">3</span><b>Read before you click Allow</b><small>Check what Claude is about to do.</small></a>
   <a class="card" href="#misinformation"><span class="lv">4</span><b>Check the answer</b><small>Claude can be wrong. You own what you send.</small></a>
-  <a class="card" href="#help"><span class="lv">5</span><b>Something odd? Say so</b><small>Tell the engineering team quickly.</small></a>
+  <a class="card" href="#dry-run"><span class="lv">5</span><b>Bulk change? Test first</b><small>Test store, checked by AI and a person.</small></a>
+  <a class="card" href="#help"><span class="lv">6</span><b>Something odd? Say so</b><small>Tell the engineering team quickly.</small></a>
 </div>
 
 <h2 id="account">Lock your account</h2>
@@ -110,6 +111,26 @@
 
 </details>
 
+<h2 id="access">Who can use what</h2>
+<p class="short">As more of us use AI, access is set per division and per role, so one mistake can't reach everything.</p>
+<div class="path" role="img" aria-label="Diagram: you ask for a tool or connector, the engineering team approves it, then it is switched on for your division.">
+  <div class="node"><b>1</b>You ask for a tool or connector</div>
+  <span class="arrow" aria-hidden="true"></span>
+  <div class="node human"><b>2</b>The engineering team approves it</div>
+  <span class="arrow" aria-hidden="true"></span>
+  <div class="node ok"><b>3</b>Switched on for your division</div>
+</div>
+<div class="setup">
+  <div class="card"><h3>Claude Enterprise</h3><p>Each division gets the connectors its work needs. Some connectors need the engineering team's approval first.</p></div>
+  <div class="card"><h3>Shopify roles</h3><p>The engineering team is cleaning up staff permissions, so each person can change only what their job needs.</p></div>
+  <div class="card"><h3>Access is a licence</h3><p>A short check on this page before you get Claude Enterprise or a new connector.</p></div>
+</div>
+<details class="more"><summary>More detail</summary>
+<p><strong>Why it matters.</strong> Claude can act through every permission you have. If you can edit every product, an automation you start can edit every product too, including by mistake. Limiting what each role can do limits how far a mistake can spread.</p>
+<p><strong>Access is reviewed.</strong> The engineering team checks access regularly and removes it when someone changes role or leaves.</p>
+<p><strong>Need more?</strong> Ask the engineering team what you need and why. It is easier to set it up right from the start than to clean up afterwards.</p>
+</details>
+
 <h2 id="automation">Automating work with sensitive information</h2>
 <p class="short">In a chat you see every step. An automation runs on its own, with access that stays on. So what it can reach is agreed once with the engineering team, before it starts.</p>
 <div class="path" role="img" aria-label="Diagram: Claude reads one allowed folder, makes a draft in a named place, and a person checks and sends it. Everything else is out of reach.">
@@ -127,7 +148,7 @@
   <div class="card"><span class="lv">1</span><h3>Which information</h3><p>One folder, not everything.</p></div>
   <div class="card"><span class="lv">2</span><h3>What it may do</h3><p>Read only. A person approves sending, paying and deleting.</p></div>
   <div class="card"><span class="lv">3</span><h3>Where the result goes</h3><p>A place only the right people can open.</p></div>
-  <div class="card"><span class="lv">4</span><h3>Who checks</h3><p>One named person.</p></div>
+  <div class="card"><span class="lv">4</span><h3>Who owns it</h3><p>One named person: checks the results, answers for it, and keeps it up to date.</p></div>
   <div class="card"><span class="lv">5</span><h3>What never goes in</h3><p>Passwords, API keys and card numbers.</p></div>
 </div>
 </details>
@@ -141,6 +162,46 @@
   <div class="card"><span class="tag">IR</span><h3>Results before announcement</h3><dl><dt>Reads</dt><dd>Published material only</dd><dt>Makes</dt><dd>A draft with blanks for the numbers</dd><dt>Person</dt><dd>Types the numbers in by hand</dd><dt class="out">Stays out</dt><dd class="out">Unpublished results</dd></dl></div>
 </div>
 </details>
+
+<h2 id="dry-run">Changing important data in bulk: dry run first</h2>
+<p class="short">An automation that edits many products, prices or stock levels at once can do in a minute what takes days to fix. Test it first, every time.</p>
+<p class="note">First, in the test store</p>
+<div class="path" role="img" aria-label="Diagram, first in the test store: back up the data, run it in the test store, AI checks the result, a person verifies it.">
+  <div class="node"><b>1</b>Back up the data</div>
+  <span class="arrow" aria-hidden="true"></span>
+  <div class="node"><b>2</b>Run it in the test store</div>
+  <span class="arrow" aria-hidden="true"></span>
+  <div class="node ai"><b>3</b>AI checks the result</div>
+  <span class="arrow" aria-hidden="true"></span>
+  <div class="node human"><b>4</b>A person verifies</div>
+</div>
+<p class="note">Then, in the real store</p>
+<div class="path" role="img" aria-label="Diagram, then in the real store: run a small batch, a person checks it on the site, then run the rest.">
+  <div class="node"><b>5</b>A small batch</div>
+  <span class="arrow" aria-hidden="true"></span>
+  <div class="node human"><b>6</b>A person checks it on the site</div>
+  <span class="arrow" aria-hidden="true"></span>
+  <div class="node ok"><b>7</b>The rest</div>
+</div>
+<p class="blocked"><b>Never:</b> a first run straight on the live store, or a run nobody has checked.</p>
+<div class="setup">
+  <div class="card"><h3>Test store</h3><p>A copy of the store, not the real one. Ask the engineering team for access.</p></div>
+  <div class="card"><h3>Undo plan</h3><p>Know how to put things back before you start.</p></div>
+  <div class="card"><h3>Small batch</h3><p>For example 5 products, then look at them on the site.</p></div>
+</div>
+<details class="more"><summary>More detail</summary>
+<p><strong>What counts as important data.</strong> Products, prices, stock, discounts, customers, orders and anything shown on a live site. A change to many of them at once always gets a dry run.</p>
+<p><strong>The AI check.</strong> Ask Claude to compare the data before and after the test run, list every field that changed, and point out anything you did not intend.</p>
+<p><strong>The person's check.</strong> Someone who knows the data opens several changed items in the test store and confirms they are right. Then again after the small batch in the real store.</p>
+<p><strong>Keep the backup</strong> until the change has been checked on the live site.</p>
+</details>
+
+<h2 id="incidents">What has gone wrong here</h2>
+<p class="short">Real cases from our own company, without names. A rule on this page would have caught each one.</p>
+<div class="cases">
+  <div class="card"><span class="tag">Products</span><h3>An automation changed live product and stock data</h3><dl><dt>Happened</dt><dd>An automation built to save manual work changed product and stock data directly in the live store.</dd><dt>Impact</dt><dd>Problems on the online store and in inventory, and at first nobody could tell how much had changed.</dd><dt>Caught by</dt><dd>A dry run in the test store, a named owner, and access limited to what it needed.</dd></dl></div>
+  <div class="card"><span class="tag">Prices</span><h3>Wrong prices on the online store</h3><dl><dt>Happened</dt><dd>Product prices on the online store were set wrong.</dd><dt>Impact</dt><dd>Customers could see and order at the wrong price until it was found and fixed.</dd><dt>Caught by</dt><dd>Checking a small batch on the live site, and a second person verifying before the rest.</dd></dl></div>
+</div>
 
 <h2 id="build">If you build your own tool</h2>
 <p class="short">Made a form, a sheet with a script or a small app? Great. Before other people rely on it:</p>
@@ -191,6 +252,7 @@
   <div class="node ok"><b>3</b>Say what happened and when</div>
 </div>
 <p class="short">You don't need to know exactly what happened. Fast matters more than a perfect explanation. Never include passwords or sign-in codes in the report.</p>
+<p class="blocked"><b>With an automation, you often can't tell how much it changed.</b> Report even a small surprise, and don't try to undo it yourself: a quick fix can hide what happened or make it worse.</p>
 <details class="more"><summary>More detail</summary>
 <p>If you notice an unexpected action, think an account was accessed, installed something suspicious, or shared information in the wrong place, <strong>stop and tell the engineering team promptly</strong>. You don’t need to know exactly what happened or worry about explaining it perfectly.</p>
 <p>Share the tool and account involved, roughly when it happened, what information or action may be affected, and what you have done. Don’t include passwords, recovery codes, or temporary sign-in codes.</p>

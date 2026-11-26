@@ -19,14 +19,15 @@
 </nav></header>
 <main>
 <h1>仕事で AI を安全に使うために</h1>
-<p class="lead">5 つの習慣でほとんどをカバーできます。下の各項目は短くまとめ、詳しく知りたい人向けに詳細を用意しています。</p>
+<p class="lead">6 つの習慣でほとんどをカバーできます。下の各項目は短くまとめ、詳しく知りたい人向けに詳細を用意しています。</p>
 
 <div class="habits">
   <a class="card" href="#account"><span class="lv">1</span><b>アカウントを守る</b><small>2 段階認証をオンにする。</small></a>
   <a class="card" href="#sensitive"><span class="lv">2</span><b>必要な情報だけ共有</b><small>パスワード、コード、カード番号は入れない。</small></a>
   <a class="card" href="#agency"><span class="lv">3</span><b>「許可」の前に読む</b><small>Claude が何をするかを確認する。</small></a>
   <a class="card" href="#misinformation"><span class="lv">4</span><b>回答を確認する</b><small>Claude は間違えます。送る責任はあなたに。</small></a>
-  <a class="card" href="#help"><span class="lv">5</span><b>おかしいと思ったら</b><small>すぐエンジニアリングチームへ。</small></a>
+  <a class="card" href="#dry-run"><span class="lv">5</span><b>一括変更は先にテスト</b><small>テストストアで、AI と人が確認。</small></a>
+  <a class="card" href="#help"><span class="lv">6</span><b>おかしいと思ったら</b><small>すぐエンジニアリングチームへ。</small></a>
 </div>
 
 <h2 id="account">アカウントを守る</h2>
@@ -109,6 +110,26 @@
 
 </details>
 
+<h2 id="access">誰が何を使えるか</h2>
+<p class="short">AI を使う人が増えたため、アクセス権は部署ごと・役割ごとに設定します。1 つのミスがすべてに届かないようにするためです。</p>
+<div class="path" role="img" aria-label="図：ツールやコネクタを申請し、エンジニアリングチームが承認し、あなたの部署で使えるようになります。">
+  <div class="node"><b>1</b>ツールやコネクタを申請</div>
+  <span class="arrow" aria-hidden="true"></span>
+  <div class="node human"><b>2</b>エンジニアリングチームが承認</div>
+  <span class="arrow" aria-hidden="true"></span>
+  <div class="node ok"><b>3</b>あなたの部署で使えるようになる</div>
+</div>
+<div class="setup">
+  <div class="card"><h3>Claude Enterprise</h3><p>各部署には、仕事に必要なコネクタだけが用意されます。一部のコネクタは、先にエンジニアリングチームの承認が必要です。</p></div>
+  <div class="card"><h3>Shopify の権限</h3><p>エンジニアリングチームがスタッフの権限を整理し、一人ひとりが仕事に必要な範囲だけを変更できるようにします。</p></div>
+  <div class="card"><h3>アクセスは免許制</h3><p>Claude Enterprise や新しいコネクタを使い始める前に、このページの内容を簡単に確認します。</p></div>
+</div>
+<details class="more"><summary>詳しく見る</summary>
+<p><strong>なぜ大切か。</strong>Claude は、あなたが持っているすべての権限を通して操作できます。すべての商品を編集できる人が自動化を動かすと、その自動化もすべての商品を編集できてしまいます。間違いの場合も同じです。役割ごとに権限を絞ることで、ミスの広がりを抑えられます。</p>
+<p><strong>アクセスは見直します。</strong>エンジニアリングチームが定期的に確認し、役割が変わった人や退職した人のアクセスは外します。</p>
+<p><strong>もっと必要なときは。</strong>何が、なぜ必要かをエンジニアリングチームに伝えてください。後から片付けるより、最初から正しく設定するほうが簡単です。</p>
+</details>
+
 <h2 id="automation">機密性の高い情報を扱う作業を自動化するとき</h2>
 <p class="short">チャットでは、すべての手順をあなたが見ます。自動化は、アクセス権が入ったまま自動で動きます。そのため、何に届くかを、始める前に一度だけエンジニアリングチームと決めます。</p>
 <div class="path" role="img" aria-label="図：Claude は許可された 1 つのフォルダだけを読み、決められた場所に下書きを作り、人が確認して送ります。それ以外には届きません。">
@@ -126,7 +147,7 @@
   <div class="card"><span class="lv">1</span><h3>どの情報か</h3><p>すべてではなく、フォルダ 1 つ。</p></div>
   <div class="card"><span class="lv">2</span><h3>何をしてよいか</h3><p>読み取りのみ。送信・支払い・削除は人が承認。</p></div>
   <div class="card"><span class="lv">3</span><h3>結果の置き場所</h3><p>必要な人だけが開ける場所。</p></div>
-  <div class="card"><span class="lv">4</span><h3>誰が確認するか</h3><p>担当者 1 名。</p></div>
+  <div class="card"><span class="lv">4</span><h3>誰の担当か</h3><p>担当者 1 名。結果を確認し、責任を持ち、最新の状態に保ちます。</p></div>
   <div class="card"><span class="lv">5</span><h3>入れないもの</h3><p>パスワード、API キー、カード番号。</p></div>
 </div>
 </details>
@@ -140,6 +161,46 @@
   <div class="card"><span class="tag">IR</span><h3>発表前の決算</h3><dl><dt>読む</dt><dd>公開済みの資料のみ</dd><dt>作る</dt><dd>数字を空欄にした下書き</dd><dt>人</dt><dd>数字を手で入力する</dd><dt class="out">入れない</dt><dd class="out">未公開の決算</dd></dl></div>
 </div>
 </details>
+
+<h2 id="dry-run">重要なデータを一括で変えるとき：まずテスト</h2>
+<p class="short">商品、価格、在庫をまとめて変更する自動化は、直すのに何日もかかる変更を 1 分で起こせます。毎回、先にテストしてください。</p>
+<p class="note">まず、テストストアで</p>
+<div class="path" role="img" aria-label="図（まずテストストアで）：データをバックアップし、テストストアで実行し、AI が結果を確認し、人が確認します。">
+  <div class="node"><b>1</b>データをバックアップ</div>
+  <span class="arrow" aria-hidden="true"></span>
+  <div class="node"><b>2</b>テストストアで実行</div>
+  <span class="arrow" aria-hidden="true"></span>
+  <div class="node ai"><b>3</b>AI が結果を確認</div>
+  <span class="arrow" aria-hidden="true"></span>
+  <div class="node human"><b>4</b>人が確認</div>
+</div>
+<p class="note">次に、本番ストアで</p>
+<div class="path" role="img" aria-label="図（次に本番ストアで）：少数だけ実行し、人がサイトで確認し、そのあと残りを実行します。">
+  <div class="node"><b>5</b>少数だけ実行</div>
+  <span class="arrow" aria-hidden="true"></span>
+  <div class="node human"><b>6</b>人がサイトで確認</div>
+  <span class="arrow" aria-hidden="true"></span>
+  <div class="node ok"><b>7</b>残りを実行</div>
+</div>
+<p class="blocked"><b>やってはいけないこと：</b>いきなり本番ストアで初回を実行すること、誰も確認していない実行。</p>
+<div class="setup">
+  <div class="card"><h3>テストストア</h3><p>本番ではなく、ストアのコピー。アクセスはエンジニアリングチームに依頼してください。</p></div>
+  <div class="card"><h3>元に戻す方法</h3><p>始める前に、どう戻すかを決めておきます。</p></div>
+  <div class="card"><h3>少数で試す</h3><p>たとえば商品 5 つで実行し、サイト上で確認します。</p></div>
+</div>
+<details class="more"><summary>詳しく見る</summary>
+<p><strong>重要なデータとは。</strong>商品、価格、在庫、割引、顧客、注文、そして公開中のサイトに表示されるもの。これらを一度に多く変更するときは、必ずテストします。</p>
+<p><strong>AI の確認。</strong>テスト実行の前後のデータを Claude に比べさせ、変わった項目をすべて書き出させ、意図していない変更を指摘させます。</p>
+<p><strong>人の確認。</strong>そのデータをよく知る人が、テストストアで変更された項目をいくつか開いて、正しいことを確かめます。本番ストアで少数を実行したあとにも、もう一度確認します。</p>
+<p><strong>バックアップは</strong>公開中のサイトで変更を確認できるまで残しておきます。</p>
+</details>
+
+<h2 id="incidents">社内で実際に起きたこと</h2>
+<p class="short">社内で実際にあったケースです（名前は伏せています）。どれも、このページのルールがあれば防げました。</p>
+<div class="cases">
+  <div class="card"><span class="tag">商品</span><h3>自動化が本番の商品・在庫データを変更</h3><dl><dt>起きたこと</dt><dd>手作業を減らすために作った自動化が、本番ストアの商品と在庫のデータを直接変更しました。</dd><dt>影響</dt><dd>オンラインストアと在庫に問題が起き、最初はどこまで変わったのか誰にも分かりませんでした。</dd><dt>防げたルール</dt><dd>テストストアでの事前実行、担当者の明確化、必要な範囲だけのアクセス。</dd></dl></div>
+  <div class="card"><span class="tag">価格</span><h3>オンラインストアの価格の誤り</h3><dl><dt>起きたこと</dt><dd>オンラインストアの商品価格が誤って設定されました。</dd><dt>影響</dt><dd>見つかって直るまで、お客様が誤った価格で見たり注文したりできる状態でした。</dd><dt>防げたルール</dt><dd>公開中のサイトで少数を確認すること、残りを実行する前に別の人が確認すること。</dd></dl></div>
+</div>
 
 <h2 id="build">自分でツールを作るとき</h2>
 <p class="short">フォーム、スクリプト付きのシート、小さなアプリを作りましたか？ 素晴らしいです。ほかの人が頼るようになる前に：</p>
@@ -190,6 +251,7 @@
   <div class="node ok"><b>3</b>何が、いつ起きたかを伝える</div>
 </div>
 <p class="short">何が起きたか正確に分からなくても大丈夫です。完璧な説明より、早さが大切です。報告にパスワードやサインイン用コードは書かないでください。</p>
+<p class="blocked"><b>自動化の場合、どこまで変わったかがすぐには分からないことがよくあります。</b>小さな違和感でも報告し、自分で元に戻そうとしないでください。急いだ修正は、何が起きたかを分からなくしたり、状況を悪化させたりすることがあります。</p>
 <details class="more"><summary>詳しく見る</summary>
 <p>予期しない操作に気づいた、アカウントに誰かがアクセスしたかもしれない、怪しいソフトをインストールした、情報を間違った場所に共有した、といった場合は、<strong>作業を止め、速やかにエンジニアリングチームに伝えてください。</strong>何が起きたか正確にわからなくても、うまく説明できなくても大丈夫です。</p>
 <p>使っていたツールとアカウント、おおよその日時、影響を受けたかもしれない情報や操作、すでに行った対応を伝えてください。パスワードや復旧用コード、一時的なサインインコードは報告に含めないでください。</p>

@@ -167,7 +167,8 @@ figcaption ol { margin: 4px 0 0; padding-left: 1.4em; }
 @media (max-width: 560px) { .path { flex-direction: column; } .path .node { flex: 0 0 auto; } .path .arrow::before { content: "\2193"; } }
 
 /* Security page: short cards first, detail folded away */
-.habits { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 12px; margin: 20px 0 8px; }
+.habits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 20px 0 8px; }
+@media (max-width: 560px) { .habits { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .habits a { display: block; margin: 0; padding: 14px 14px 12px; color: var(--text); text-decoration: none; }
 .habits a:hover { border-color: var(--accent); }
 .habits b { display: block; margin: 8px 0 2px; line-height: 1.35; }
