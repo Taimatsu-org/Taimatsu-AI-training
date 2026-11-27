@@ -196,13 +196,6 @@
 <p><strong>Keep the backup</strong> until the change has been checked on the live site.</p>
 </details>
 
-<h2 id="incidents">What has gone wrong here</h2>
-<p class="short">Real cases from our own company, without names. A rule on this page would have caught each one.</p>
-<div class="cases">
-  <div class="card"><span class="tag">Products</span><h3>An automation changed live product and stock data</h3><dl><dt>Happened</dt><dd>An automation built to save manual work changed product and stock data directly in the live store.</dd><dt>Impact</dt><dd>Problems on the online store and in inventory, and at first nobody could tell how much had changed.</dd><dt>Caught by</dt><dd>A dry run in the test store, a named owner, and access limited to what it needed.</dd></dl></div>
-  <div class="card"><span class="tag">Prices</span><h3>Wrong prices on the online store</h3><dl><dt>Happened</dt><dd>Product prices on the online store were set wrong.</dd><dt>Impact</dt><dd>Customers could see and order at the wrong price until it was found and fixed.</dd><dt>Caught by</dt><dd>Checking a small batch on the live site, and a second person verifying before the rest.</dd></dl></div>
-</div>
-
 <h2 id="build">If you build your own tool</h2>
 <p class="short">Made a form, a sheet with a script or a small app? Great. Before other people rely on it:</p>
 <div class="path" role="img" aria-label="Diagram: idea, build and test with made-up data, tell the engineering team, then use it for real work.">
